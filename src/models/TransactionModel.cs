@@ -43,7 +43,7 @@ namespace Avalara.AvaTax.RestClient
         public DateTime? date { get; set; }
 
         /// <summary>
-        /// The date when payment was made on this transaction. By default, this should be the same as the date of the transaction.
+        /// DEPRECATED - The date when payment was made on this transaction. By default, this should be the same as the date of the transaction.
         /// </summary>
         public DateTime? paymentDate { get; set; }
 
@@ -104,7 +104,10 @@ namespace Avalara.AvaTax.RestClient
         public String customerCode { get; set; }
 
         /// <summary>
-        /// If this transaction was exempt, this field will contain the word "Exempt".
+        /// The customer Tax Id Number (tax_number) associated with a certificate - Sales tax calculation requests first determine if there is an applicable 
+        /// ECMS entry available, and will utilize it for exemption processing. If no applicable ECMS entry is available, the AvaTax service 
+        /// will determine if an Exemption Number field is populated or an Entity/Use Code is included in the sales tax calculation request, 
+        /// and will perform exemption processing using either of those two options.
         /// </summary>
         public String exemptNo { get; set; }
 
@@ -151,7 +154,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If a tax override was applied to this transaction, indicates what type of tax override was applied.
         /// </summary>
-        public TaxOverrideTypeId? taxOverrideType { get; set; }
+        public TaxOverrideType? taxOverrideType { get; set; }
 
         /// <summary>
         /// If a tax override was applied to this transaction, indicates the amount of tax that was requested by the customer.
@@ -331,6 +334,11 @@ namespace Avalara.AvaTax.RestClient
         /// Contains a summary of tax on this transaction.
         /// </summary>
         public List<TransactionSummary> summary { get; set; }
+
+        /// <summary>
+        /// Constains the tax details per tax type
+        /// </summary>
+        public List<TaxDetailsByTaxType> taxDetailsByTaxType { get; set; }
 
         /// <summary>
         /// Contains a list of extra parameters that were set when the transaction was created.

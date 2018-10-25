@@ -18,54 +18,49 @@ using Newtonsoft.Json;
 namespace Avalara.AvaTax.RestClient
 {
     /// <summary>
-    /// A model for return adjustments.
+    /// Data source object
     /// </summary>
-    public class FilingAdjustmentModel
+    public class DataSourceModel
     {
         /// <summary>
-        /// The unique ID number for the adjustment.
+        /// The id of the datasource.
         /// </summary>
-        public Int64? id { get; set; }
+        public Int32? id { get; set; }
 
         /// <summary>
-        /// The filing return id that this applies too
+        /// The id of the company to which the datasource belongs to.
         /// </summary>
-        public Int64? filingId { get; set; }
+        public Int32 companyId { get; set; }
 
         /// <summary>
-        /// The adjustment amount.
+        /// The extractor/connector id.
         /// </summary>
-        public Decimal amount { get; set; }
+        public String source { get; set; }
 
         /// <summary>
-        /// The filing period the adjustment is applied to.
+        /// The unique ID number of this connection.
         /// </summary>
-        public AdjustmentPeriodTypeId period { get; set; }
+        public String instance { get; set; }
 
         /// <summary>
-        /// The type of the adjustment.
+        /// The connection using the connection_id is enabled. The customer is responsible to enable or disable.
         /// </summary>
-        public String type { get; set; }
+        public Boolean? isEnabled { get; set; }
 
         /// <summary>
-        /// Whether or not the adjustment has been calculated.
+        /// If all the information has been transferred from the extractor to the database.
         /// </summary>
-        public Boolean? isCalculated { get; set; }
+        public Boolean? isSynced { get; set; }
 
         /// <summary>
-        /// The account type of the adjustment.
+        /// True if this data source is authorized.
         /// </summary>
-        public PaymentAccountTypeId accountType { get; set; }
+        public Boolean? isAuthorized { get; set; }
 
         /// <summary>
-        /// A descriptive reason for creating this adjustment.
+        /// The date when the information was last synched.
         /// </summary>
-        public String reason { get; set; }
-
-        /// <summary>
-        /// The date when this record was created.
-        /// </summary>
-        public DateTime? createdDate { get; set; }
+        public DateTime? lastSyncedDate { get; set; }
 
         /// <summary>
         /// The User ID of the user who created this record.
@@ -73,14 +68,29 @@ namespace Avalara.AvaTax.RestClient
         public Int32? createdUserId { get; set; }
 
         /// <summary>
-        /// The date/time when this record was last modified.
+        /// The date when this record was created.
         /// </summary>
-        public DateTime? modifiedDate { get; set; }
+        public DateTime? createdDate { get; set; }
 
         /// <summary>
         /// The user ID of the user who last modified this record.
         /// </summary>
         public Int32? modifiedUserId { get; set; }
+
+        /// <summary>
+        /// The date/time when this record was last modified.
+        /// </summary>
+        public DateTime? modifiedDate { get; set; }
+
+        /// <summary>
+        /// The date when this record was deleted.
+        /// </summary>
+        public DateTime? deletedDate { get; set; }
+
+        /// <summary>
+        /// Specifies whether transactions created by this data source needs to re-calculate tax or not
+        /// </summary>
+        public Boolean? recalculate { get; set; }
 
 
         /// <summary>

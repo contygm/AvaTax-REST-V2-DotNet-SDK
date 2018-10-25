@@ -52,6 +52,26 @@ namespace Avalara.AvaTax.RestClient
         /// </summary>
         public String companyCode { get; set; }
 
+        /// <summary>
+        /// The date when this record was created.
+        /// </summary>
+        public DateTime? createdDate { get; set; }
+
+        /// <summary>
+        /// The User ID of the user who created this record.
+        /// </summary>
+        public Int32? createdUserId { get; set; }
+
+        /// <summary>
+        /// The date/time when this record was last modified.
+        /// </summary>
+        public DateTime? modifiedDate { get; set; }
+
+        /// <summary>
+        /// The user ID of the user who last modified this record.
+        /// </summary>
+        public Int32? modifiedUserId { get; set; }
+
 
         /// <summary>
         /// Convert this object to a JSON string of itself

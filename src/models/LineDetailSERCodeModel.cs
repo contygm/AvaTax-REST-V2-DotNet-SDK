@@ -18,24 +18,19 @@ using Newtonsoft.Json;
 namespace Avalara.AvaTax.RestClient
 {
     /// <summary>
-    /// Represents an ISO 4217 currency code used for designating the currency of a transaction.
+    /// SER code fixup
     /// </summary>
-    public class CurrencyModel
+    public class LineDetailSERCodeModel
     {
         /// <summary>
-        /// The ISO 4217 currency code for this currency.
+        /// Transaction line detail Id
         /// </summary>
-        public String code { get; set; }
+        public Int64? transactionLineDetailId { get; set; }
 
         /// <summary>
-        /// A friendly human-readable name representing this currency.
+        /// Updated SER code
         /// </summary>
-        public String description { get; set; }
-
-        /// <summary>
-        /// The number of decimal digits to use when formatting a currency value for display.
-        /// </summary>
-        public Int32? decimalDigits { get; set; }
+        public String serCode { get; set; }
 
 
         /// <summary>
