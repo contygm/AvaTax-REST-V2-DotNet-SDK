@@ -25,7 +25,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Identifies the type of tax override
         /// </summary>
-        public TaxOverrideType? type { get; set; }
+        public String type { get; set; }
 
         /// <summary>
         /// Indicates a total override of the calculated tax on the document. AvaTax will distribute
@@ -43,7 +43,7 @@ namespace Avalara.AvaTax.RestClient
         /// as in the case of a layaway, return or other reason indicated by the Reason element.
         /// If the date is not overridden, then it should be set to the same as the DocDate.
         /// </summary>
-        public DateTime? taxDate { get; set; }
+        public String taxDate { get; set; }
 
         /// <summary>
         /// This provides the reason for a tax override for audit purposes. It is required for types 2-4.

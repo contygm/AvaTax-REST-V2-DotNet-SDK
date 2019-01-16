@@ -50,7 +50,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The current status of this account.
         /// </summary>
-        public AccountStatusId? accountStatusId { get; set; }
+        public String accountStatusId { get; set; }
 
         /// <summary>
         /// The date when this record was created.

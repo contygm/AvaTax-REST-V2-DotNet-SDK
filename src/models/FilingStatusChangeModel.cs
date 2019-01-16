@@ -25,7 +25,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Indicates the filing status you are requesting for this company
         /// </summary>
-        public CompanyFilingStatus? requestedStatus { get; set; }
+        public String requestedStatus { get; set; }
 
 
         /// <summary>

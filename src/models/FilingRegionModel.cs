@@ -115,7 +115,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The current status of the filing region.
         /// </summary>
-        public FilingStatusId? status { get; set; }
+        public String status { get; set; }
 
         /// <summary>
         /// A list of tax returns in this region.

@@ -18,49 +18,49 @@ using Newtonsoft.Json;
 namespace Avalara.AvaTax.RestClient
 {
     /// <summary>
-    /// Message object
+    /// Regions
     /// </summary>
-    public class ErrorDetail
+    public class MultiTaxFilingRegionModel
     {
         /// <summary>
-        /// Name of the error or message.
+        /// The two-character ISO-3166 code for the country.
         /// </summary>
-        public String code { get; set; }
+        public String country { get; set; }
 
         /// <summary>
-        /// Unique ID number referring to this error or message.
+        /// The two or three character region code for the region.
         /// </summary>
-        public Int32? number { get; set; }
+        public String region { get; set; }
 
         /// <summary>
-        /// Concise summary of the message, suitable for display in the caption of an alert box.
+        /// Whether or not you have nexus in this region.
         /// </summary>
-        public String message { get; set; }
+        public Boolean? hasNexus { get; set; }
 
         /// <summary>
-        /// A more detailed description of the problem referenced by this error message, suitable for display in the contents area of an alert box.
+        /// The current status of the filing region.
         /// </summary>
-        public String description { get; set; }
+        public String status { get; set; }
 
         /// <summary>
-        /// Indicates the SOAP Fault code, if this was related to an error that corresponded to AvaTax SOAP v1 behavior.
+        /// A summary of all taxes compbined for this period
         /// </summary>
-        public String faultCode { get; set; }
+        public FilingsTaxSummaryModel regionTaxSummary { get; set; }
 
         /// <summary>
-        /// URL to help for this message
+        /// A detailed breakdown of the taxes in this filing
         /// </summary>
-        public String helpLink { get; set; }
+        public List<FilingsTaxDetailsModel> regionTaxDetails { get; set; }
 
         /// <summary>
-        /// Item the message refers to, if applicable. This is used to indicate a missing or incorrect value.
+        /// A list of tax returns in this region.
         /// </summary>
-        public String refersTo { get; set; }
+        public List<FilingsCheckupSuggestedFormModel> suggestReturns { get; set; }
 
         /// <summary>
-        /// Severity of the message
+        /// A list of tax returns in this region.
         /// </summary>
-        public String severity { get; set; }
+        public List<MultiTaxFilingReturnModel> returns { get; set; }
 
 
         /// <summary>

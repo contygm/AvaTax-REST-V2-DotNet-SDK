@@ -30,17 +30,17 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The period start date for the customer's first transaction in the jurisdiction being added
         /// </summary>
-        public DateTime? transactionalPeriodStart { get; set; }
+        public String transactionalPeriodStart { get; set; }
 
         /// <summary>
         /// The period end date for the customer's last transaction in the jurisdiction being added
         /// </summary>
-        public DateTime? transactionalPeriodEnd { get; set; }
+        public String transactionalPeriodEnd { get; set; }
 
         /// <summary>
         /// The jurisdiction-assigned due date for the form
         /// </summary>
-        public DateTime? filingDueDate { get; set; }
+        public String filingDueDate { get; set; }
 
         /// <summary>
         /// A descriptive name of the cycle and due date of form.
@@ -60,7 +60,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The filing frequency of the request
         /// </summary>
-        public FilingFrequencyId? filingFrequencyId { get; set; }
+        public String filingFrequencyId { get; set; }
 
         /// <summary>
         /// An explanation for why this form cannot be added for the current cycle

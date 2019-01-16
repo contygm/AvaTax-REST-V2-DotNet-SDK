@@ -65,12 +65,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date in which this tax region jurisdiction starts to take effect.
         /// </summary>
-        public DateTime? effectiveDate { get; set; }
+        public String effectiveDate { get; set; }
 
         /// <summary>
         /// The date in which this tax region jurisdiction stops to take effect.
         /// </summary>
-        public DateTime? endDate { get; set; }
+        public String endDate { get; set; }
 
 
         /// <summary>

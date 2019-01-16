@@ -49,7 +49,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Indicates whether this is an original or an amended filing.
         /// </summary>
-        public WorksheetTypeId? type { get; set; }
+        public String type { get; set; }
 
         /// <summary>
         /// The date when this record was created.

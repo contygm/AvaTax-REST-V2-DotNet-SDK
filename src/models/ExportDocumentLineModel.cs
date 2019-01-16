@@ -25,7 +25,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The output format: CSV, XML, etc. If no preference, report will be in CSV format.
         /// </summary>
-        public ReportFormat? format { get; set; }
+        public String format { get; set; }
 
         /// <summary>
         /// The start date filter for report execution. If no date provided, same date of last month will be used as the startDate.
@@ -53,12 +53,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of date to filter your transactions
         /// </summary>
-        public ReportDateFilter? dateFilter { get; set; }
+        public String dateFilter { get; set; }
 
         /// <summary>
         /// The transaction type you want to run a report on
         /// </summary>
-        public ReportDocType? docType { get; set; }
+        public String docType { get; set; }
 
         /// <summary>
         /// Format of dates in your rendered report. Example: "MM/dd/yyyy"

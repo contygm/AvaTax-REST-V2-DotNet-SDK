@@ -95,7 +95,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of exemption certificate. Permitted values are: Blanket and Single.
         /// </summary>
-        public ExemptCertTypeId exemptCertTypeId { get; set; }
+        public String exemptCertTypeId { get; set; }
 
         /// <summary>
         /// Document Reference Number, in the case of single-use exemption certificates, the DocumentCode or PurchaseOrderNo to which the certificate should apply.
@@ -138,7 +138,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Status for this exempt certificate
         /// </summary>
-        public ExemptCertStatusId exemptCertStatusId { get; set; }
+        public String exemptCertStatusId { get; set; }
 
         /// <summary>
         /// Date when this exempt certificate was created
@@ -192,7 +192,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Review status for this exempt certificate
         /// </summary>
-        public ExemptCertReviewStatusId? exemptCertReviewStatusId { get; set; }
+        public String exemptCertReviewStatusId { get; set; }
 
         /// <summary>
         /// Exempt Cert details

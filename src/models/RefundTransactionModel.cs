@@ -31,7 +31,7 @@ namespace Avalara.AvaTax.RestClient
         /// The date of the refund. For customers using Avalara's Managed Returns Service, this date controls the month in which the refund
         /// transaction will be reported on a tax filing.
         /// </summary>
-        public DateTime refundDate { get; set; }
+        public String refundDate { get; set; }
 
         /// <summary>
         /// Type of this refund. 
@@ -44,7 +44,7 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// To issue a percentage-based discount, specify `Percentage`.
         /// </summary>
-        public RefundType? refundType { get; set; }
+        public String refundType { get; set; }
 
         /// <summary>
         /// The percentage for refund.

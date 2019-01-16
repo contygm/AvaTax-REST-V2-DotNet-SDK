@@ -40,7 +40,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of the payment.
         /// </summary>
-        public PaymentType type { get; set; }
+        public String type { get; set; }
 
         /// <summary>
         /// Whether or not the payment has been calculated.

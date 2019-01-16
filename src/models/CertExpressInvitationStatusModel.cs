@@ -25,7 +25,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The status of the CertExpress invitation for this customer. If this status says
         /// </summary>
-        public CertExpressInvitationStatus? status { get; set; }
+        public String status { get; set; }
 
         /// <summary>
         /// The CertExpress invitation for the customer. If you specified an email address in the invitation

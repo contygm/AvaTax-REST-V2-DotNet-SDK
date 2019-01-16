@@ -18,49 +18,59 @@ using Newtonsoft.Json;
 namespace Avalara.AvaTax.RestClient
 {
     /// <summary>
-    /// Message object
+    /// Represents a listing of all tax calculation data for filings and for accruing to future filings.
     /// </summary>
-    public class ErrorDetail
+    public class FilingsTaxSummaryModel
     {
         /// <summary>
-        /// Name of the error or message.
+        /// The total sales amount
         /// </summary>
-        public String code { get; set; }
+        public Decimal? salesAmount { get; set; }
 
         /// <summary>
-        /// Unique ID number referring to this error or message.
+        /// The taxable amount
         /// </summary>
-        public Int32? number { get; set; }
+        public Decimal? taxableAmount { get; set; }
 
         /// <summary>
-        /// Concise summary of the message, suitable for display in the caption of an alert box.
+        /// The nontaxable amount
         /// </summary>
-        public String message { get; set; }
+        public Decimal? nonTaxableAmount { get; set; }
 
         /// <summary>
-        /// A more detailed description of the problem referenced by this error message, suitable for display in the contents area of an alert box.
+        /// The tax amount
         /// </summary>
-        public String description { get; set; }
+        public Decimal? taxAmount { get; set; }
 
         /// <summary>
-        /// Indicates the SOAP Fault code, if this was related to an error that corresponded to AvaTax SOAP v1 behavior.
+        /// The remittance amount
         /// </summary>
-        public String faultCode { get; set; }
+        public Decimal? remittanceAmount { get; set; }
 
         /// <summary>
-        /// URL to help for this message
+        /// The collect amount
         /// </summary>
-        public String helpLink { get; set; }
+        public Decimal? collectAmount { get; set; }
 
         /// <summary>
-        /// Item the message refers to, if applicable. This is used to indicate a missing or incorrect value.
+        /// The sales accrual amount
         /// </summary>
-        public String refersTo { get; set; }
+        public Decimal? salesAccrualAmount { get; set; }
 
         /// <summary>
-        /// Severity of the message
+        /// The taxable sales accrual amount
         /// </summary>
-        public String severity { get; set; }
+        public Decimal? taxableAccrualAmount { get; set; }
+
+        /// <summary>
+        /// The nontaxable accrual amount
+        /// </summary>
+        public Decimal? nonTaxableAccrualAmount { get; set; }
+
+        /// <summary>
+        /// The tax accrual amount
+        /// </summary>
+        public Decimal? taxAccrualAmount { get; set; }
 
 
         /// <summary>

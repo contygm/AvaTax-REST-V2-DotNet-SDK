@@ -60,7 +60,7 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// If you omit this value, the API will assume you want to create a `SalesOrder`.
         /// </summary>
-        public DocumentType? type { get; set; }
+        public String type { get; set; }
 
         /// <summary>
         /// Company Code - Specify the code of the company creating this transaction here. If you leave this value null,
@@ -74,7 +74,7 @@ namespace Avalara.AvaTax.RestClient
         /// By default, this date will be used to calculate the tax rates for the transaction. If you wish to use a
         /// different date to calculate tax rates, please specify a `taxOverride` of type `taxDate`.
         /// </summary>
-        public DateTime date { get; set; }
+        public String date { get; set; }
 
         /// <summary>
         /// Salesperson Code - The client application salesperson reference code.
@@ -181,7 +181,7 @@ namespace Avalara.AvaTax.RestClient
         /// Specifies whether the tax calculation is handled Local, Remote, or Automatic (default). This only 
         /// applies when using an AvaLocal server.
         /// </summary>
-        public ServiceMode? serviceMode { get; set; }
+        public String serviceMode { get; set; }
 
         /// <summary>
         /// Currency exchange rate from this transaction to the company base currency.
@@ -194,7 +194,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Effective date of the exchange rate.
         /// </summary>
-        public DateTime? exchangeRateEffectiveDate { get; set; }
+        public String exchangeRateEffectiveDate { get; set; }
 
         /// <summary>
         /// Sets the Point of Sale Lane Code sent by the User for this document.
@@ -237,7 +237,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If the user wishes to request additional debug information from this transaction, specify a level higher than `normal`.
         /// </summary>
-        public TaxDebugLevel? debugLevel { get; set; }
+        public String debugLevel { get; set; }
 
 
         /// <summary>

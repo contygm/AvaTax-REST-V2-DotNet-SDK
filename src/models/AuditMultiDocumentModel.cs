@@ -40,7 +40,7 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// A MultiDocument transaction is uniquely identified by its `accountId`, `code`, and `type`.
         /// </summary>
-        public DocumentType? type { get; set; }
+        public String type { get; set; }
 
         /// <summary>
         /// Server timestamp, in UTC, of the date/time when the original transaction was created
@@ -55,7 +55,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// api call status
         /// </summary>
-        public ApiCallStatus? apiCallStatus { get; set; }
+        public String apiCallStatus { get; set; }
 
         /// <summary>
         /// Original API request/response

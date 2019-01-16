@@ -46,12 +46,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date when the subscription began.
         /// </summary>
-        public DateTime? effectiveDate { get; set; }
+        public String effectiveDate { get; set; }
 
         /// <summary>
         /// If the subscription has ended or will end, this date indicates when the subscription ends.
         /// </summary>
-        public DateTime? endDate { get; set; }
+        public String endDate { get; set; }
 
         /// <summary>
         /// The date when this record was created.

@@ -45,12 +45,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of this batch.
         /// </summary>
-        public BatchType type { get; set; }
+        public String type { get; set; }
 
         /// <summary>
         /// This batch's current processing status
         /// </summary>
-        public BatchStatus? status { get; set; }
+        public String status { get; set; }
 
         /// <summary>
         /// Any optional flags provided for this batch

@@ -35,7 +35,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of jurisdiction associated with this tax rate.
         /// </summary>
-        public JurisdictionType? type { get; set; }
+        public String type { get; set; }
 
 
         /// <summary>

@@ -51,13 +51,13 @@ namespace Avalara.AvaTax.RestClient
         /// The earliest date for which this preferred program can be used in AvaTax. If `null`, this preferred program
         /// is valid for all dates earlier than `endDate`.
         /// </summary>
-        public DateTime? effectiveDate { get; set; }
+        public String effectiveDate { get; set; }
 
         /// <summary>
         /// The latest date for which this preferred program can be used in AvaTax. If `null`, this preferred program
         /// is valid for all dates later than `effectiveDate`.
         /// </summary>
-        public DateTime? endDate { get; set; }
+        public String endDate { get; set; }
 
 
         /// <summary>

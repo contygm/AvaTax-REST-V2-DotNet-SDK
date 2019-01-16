@@ -40,7 +40,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The filing period the adjustment is applied to.
         /// </summary>
-        public AdjustmentPeriodTypeId period { get; set; }
+        public String period { get; set; }
 
         /// <summary>
         /// The type of the adjustment.
@@ -55,7 +55,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The account type of the adjustment.
         /// </summary>
-        public PaymentAccountTypeId accountType { get; set; }
+        public String accountType { get; set; }
 
         /// <summary>
         /// A descriptive reason for creating this adjustment.

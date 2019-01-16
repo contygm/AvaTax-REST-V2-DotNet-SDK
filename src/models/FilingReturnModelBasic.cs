@@ -79,12 +79,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The current status of the filing return.
         /// </summary>
-        public FilingStatusId? status { get; set; }
+        public String status { get; set; }
 
         /// <summary>
         /// The filing frequency of the return.
         /// </summary>
-        public FilingFrequencyId? filingFrequency { get; set; }
+        public String filingFrequency { get; set; }
 
         /// <summary>
         /// The date the return was filed by Avalara.
@@ -99,7 +99,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The filing type of the return.
         /// </summary>
-        public FilingTypeId? filingType { get; set; }
+        public String filingType { get; set; }
 
         /// <summary>
         /// The name of the form.
@@ -184,7 +184,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Accrual type of the return
         /// </summary>
-        public AccrualType? accrualType { get; set; }
+        public String accrualType { get; set; }
 
         /// <summary>
         /// The attachments for this return.

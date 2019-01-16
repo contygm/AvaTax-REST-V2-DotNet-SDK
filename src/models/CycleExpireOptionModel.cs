@@ -25,17 +25,17 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The period start date for the customer's first transaction in the jurisdiction being expired.
         /// </summary>
-        public DateTime? transactionalPeriodStart { get; set; }
+        public String transactionalPeriodStart { get; set; }
 
         /// <summary>
         /// The period end date for the customer's last transaction in the jurisdiction being expired.
         /// </summary>
-        public DateTime? transactionalPeriodEnd { get; set; }
+        public String transactionalPeriodEnd { get; set; }
 
         /// <summary>
         /// The jurisdiction-assigned due date for the form.
         /// </summary>
-        public DateTime? filingDueDate { get; set; }
+        public String filingDueDate { get; set; }
 
         /// <summary>
         /// A descriptive name of the cycle and due date of the form.

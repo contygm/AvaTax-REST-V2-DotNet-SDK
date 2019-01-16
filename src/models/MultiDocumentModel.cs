@@ -52,7 +52,7 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// For more information about document types, see [DocumentType](https://developer.avalara.com/api-reference/avatax/rest/v2/models/enums/DocumentType/)
         /// </summary>
-        public DocumentType? type { get; set; }
+        public String type { get; set; }
 
         /// <summary>
         /// The user ID of the user who created this record.

@@ -60,7 +60,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// taxNoticeCommentType
         /// </summary>
-        public CommentType commentType { get; set; }
+        public String commentType { get; set; }
 
         /// <summary>
         /// TaxNoticeCommentLink

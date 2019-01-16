@@ -18,24 +18,34 @@ using Newtonsoft.Json;
 namespace Avalara.AvaTax.RestClient
 {
     /// <summary>
-    /// User Entitlement Model
+    /// Represents a listing of all tax calculation data for filings and for accruing to future filings.
     /// </summary>
-    public class UserEntitlementModel
+    public class FilingsTaxDetailsModel
     {
         /// <summary>
-        /// List of API names and categories that this user is permitted to access
+        /// The tax type associated with the summary
         /// </summary>
-        public List<String> permissions { get; set; }
+        public String taxType { get; set; }
 
         /// <summary>
-        /// What access privileges does the current user have to see companies?
+        /// The total sales amount
         /// </summary>
-        public String accessLevel { get; set; }
+        public Decimal? salesAmount { get; set; }
 
         /// <summary>
-        /// The identities of all companies this user is permitted to access
+        /// The nontaxable amount
         /// </summary>
-        public List<Int32> companies { get; set; }
+        public Decimal? nonTaxableAmount { get; set; }
+
+        /// <summary>
+        /// The tax amount
+        /// </summary>
+        public Decimal? taxAmount { get; set; }
+
+        /// <summary>
+        /// The number of nights
+        /// </summary>
+        public Int64? numberOfNights { get; set; }
 
 
         /// <summary>

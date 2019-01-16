@@ -40,7 +40,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The Scraper type
         /// </summary>
-        public ScraperType? scraperType { get; set; }
+        public String scraperType { get; set; }
 
         /// <summary>
         /// Indicates if the return is currently available

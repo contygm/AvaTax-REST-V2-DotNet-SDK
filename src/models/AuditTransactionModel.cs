@@ -45,7 +45,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// api call status
         /// </summary>
-        public ApiCallStatus? apiCallStatus { get; set; }
+        public String apiCallStatus { get; set; }
 
         /// <summary>
         /// Original API request/response

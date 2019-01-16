@@ -146,7 +146,7 @@ namespace Avalara.AvaTax.RestClient
         /// The date when this transaction should be reported. By default, all transactions are reported on the date when the actual transaction took place.
         /// In some cases, line items may be reported later due to delayed shipments or other business reasons.
         /// </summary>
-        public DateTime? reportingDate { get; set; }
+        public String reportingDate { get; set; }
 
         /// <summary>
         /// The revenue account number for this line item.
@@ -156,7 +156,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Indicates whether this line item was taxed according to the origin or destination.
         /// </summary>
-        public Sourcing? sourcing { get; set; }
+        public String sourcing { get; set; }
 
         /// <summary>
         /// The tax for this line in this transaction.
@@ -202,7 +202,7 @@ namespace Avalara.AvaTax.RestClient
         /// In some cases, for example when a consumer returns a product purchased previously, line items may be calculated using a tax date in the past
         /// so that the consumer can receive a refund for the correct tax amount that was charged when the item was originally purchased.
         /// </summary>
-        public DateTime? taxDate { get; set; }
+        public String taxDate { get; set; }
 
         /// <summary>
         /// The tax engine identifier that was used to calculate this line item.
@@ -212,7 +212,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If a tax override was specified, this indicates the type of tax override.
         /// </summary>
-        public TaxOverrideType? taxOverrideType { get; set; }
+        public String taxOverrideType { get; set; }
 
         /// <summary>
         /// VAT business identification number used for this transaction.

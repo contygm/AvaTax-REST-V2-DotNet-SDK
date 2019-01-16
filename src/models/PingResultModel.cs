@@ -35,7 +35,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Returns the type of authentication you provided, if authenticated
         /// </summary>
-        public AuthenticationTypeId? authenticationType { get; set; }
+        public String authenticationType { get; set; }
 
         /// <summary>
         /// The username of the currently authenticated user, if any.

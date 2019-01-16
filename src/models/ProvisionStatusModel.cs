@@ -31,7 +31,7 @@ namespace Avalara.AvaTax.RestClient
         /// If this value is `Finished`, this company will then be able to use the Customers, Certificates, and
         /// CertExpressInvites APIs within AvaTax.
         /// </summary>
-        public CertCaptureProvisionStatus? status { get; set; }
+        public String status { get; set; }
 
         /// <summary>
         /// The accountId of the company represented by this status

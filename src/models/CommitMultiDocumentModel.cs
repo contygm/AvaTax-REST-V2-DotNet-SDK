@@ -35,7 +35,7 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// A MultiDocument transaction is uniquely identified by its `accountId`, `code`, and `type`.
         /// </summary>
-        public DocumentType? type { get; set; }
+        public String type { get; set; }
 
         /// <summary>
         /// Set this value to be `true` to commit this transaction.

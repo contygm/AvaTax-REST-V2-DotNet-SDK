@@ -87,7 +87,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Indicates the method that was used to deliver this CertExpress invitation.
         /// </summary>
-        public CertificateRequestDeliveryMethod? deliveryMethod { get; set; }
+        public String deliveryMethod { get; set; }
 
         /// <summary>
         /// The custom message delivered with this invitation.

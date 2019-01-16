@@ -25,7 +25,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// A reason code indicating why this adjustment was made
         /// </summary>
-        public AdjustmentReason adjustmentReason { get; set; }
+        public String adjustmentReason { get; set; }
 
         /// <summary>
         /// If the AdjustmentReason is "Other", specify the reason here.

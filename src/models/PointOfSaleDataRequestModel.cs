@@ -30,12 +30,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date associated with the response content. Default is current date. This field can be used to backdate or postdate the response content.
         /// </summary>
-        public DateTime? documentDate { get; set; }
+        public String documentDate { get; set; }
 
         /// <summary>
         /// The format of your response. Formats include JSON, CSV, and XML.
         /// </summary>
-        public PointOfSaleFileType? responseType { get; set; }
+        public String responseType { get; set; }
 
         /// <summary>
         /// A list of tax codes to include in this point-of-sale file. If no tax codes are specified, response will include all distinct tax codes associated with the Items within your company.
@@ -60,7 +60,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// A unique code assoicated with the Partner you may be working with. If you are not working with a Partner or your Partner has not provided you an ID, leave null.
         /// </summary>
-        public PointOfSalePartnerId? partnerId { get; set; }
+        public String partnerId { get; set; }
 
 
         /// <summary>

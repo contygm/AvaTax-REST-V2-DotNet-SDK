@@ -65,12 +65,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The security level for this user.
         /// </summary>
-        public SecurityRoleId securityRoleId { get; set; }
+        public String securityRoleId { get; set; }
 
         /// <summary>
         /// The status of the user's password. For a new user created, this is always going to be `UserMustChange`
         /// </summary>
-        public PasswordStatusId? passwordStatus { get; set; }
+        public String passwordStatus { get; set; }
 
         /// <summary>
         /// True if this user is currently active.

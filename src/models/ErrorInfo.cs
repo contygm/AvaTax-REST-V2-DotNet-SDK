@@ -25,7 +25,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Type of error that occurred
         /// </summary>
-        public ErrorCodeId? code { get; set; }
+        public String code { get; set; }
 
         /// <summary>
         /// Short one-line message to summaryize what went wrong
@@ -35,7 +35,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// What object or service caused the error?
         /// </summary>
-        public ErrorTargetCode? target { get; set; }
+        public String target { get; set; }
 
         /// <summary>
         /// Array of detailed error messages

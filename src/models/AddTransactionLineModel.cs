@@ -35,7 +35,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// document type
         /// </summary>
-        public DocumentType? documentType { get; set; }
+        public String documentType { get; set; }
 
         /// <summary>
         /// List of lines to be added

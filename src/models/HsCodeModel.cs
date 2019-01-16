@@ -79,7 +79,7 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// If this value is null, this code can be used for any valid date earlier than its end date.
         /// </summary>
-        public DateTime? effDate { get; set; }
+        public String effDate { get; set; }
 
         /// <summary>
         /// For codes that have been expired or defined on specific dates, this value indicates the latest
@@ -87,7 +87,7 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// If this value is null, this code can be used for any valid date later than its effective date.
         /// </summary>
-        public DateTime? endDate { get; set; }
+        public String endDate { get; set; }
 
 
         /// <summary>

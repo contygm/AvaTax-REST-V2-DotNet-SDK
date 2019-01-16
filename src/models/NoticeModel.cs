@@ -62,7 +62,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// NoticeCustomerTypeID can be retrieved from the definitions API
         /// </summary>
-        public NoticeCustomerType customerTypeId { get; set; }
+        public String customerTypeId { get; set; }
 
         /// <summary>
         /// Name or ISO 3166 code identifying the country that sent this notice.
@@ -97,12 +97,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The filing frequency of the notice
         /// </summary>
-        public FilingFrequencyId? filingFrequency { get; set; }
+        public String filingFrequency { get; set; }
 
         /// <summary>
         /// The filing type of the notice
         /// </summary>
-        public TaxNoticeFilingTypeId? filingTypeId { get; set; }
+        public String filingTypeId { get; set; }
 
         /// <summary>
         /// The ticket reference number of the notice
@@ -152,12 +152,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The notice customer funding options
         /// </summary>
-        public FundingOption? customerFundingOptionId { get; set; }
+        public String customerFundingOptionId { get; set; }
 
         /// <summary>
         /// The priority of the notice
         /// </summary>
-        public NoticePriorityId priorityId { get; set; }
+        public String priorityId { get; set; }
 
         /// <summary>
         /// Comments from the customer on this notice

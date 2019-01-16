@@ -45,12 +45,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date this rate is starts to take effect.
         /// </summary>
-        public DateTime? effectiveDate { get; set; }
+        public String effectiveDate { get; set; }
 
         /// <summary>
         /// The date this rate is no longer active.
         /// </summary>
-        public DateTime? endDate { get; set; }
+        public String endDate { get; set; }
 
         /// <summary>
         /// The rate type.

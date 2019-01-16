@@ -77,7 +77,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If this calendar is for a location-specific tax return, specify the location-specific behavior here.
         /// </summary>
-        public OutletTypeId? outletTypeId { get; set; }
+        public String outletTypeId { get; set; }
 
         /// <summary>
         /// Specify the ISO 4217 currency code for the currency to remit for this tax return. For all tax returns in the United States, specify "USD".
@@ -87,7 +87,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The frequency on which this tax form is filed.
         /// </summary>
-        public FilingFrequencyId? filingFrequencyId { get; set; }
+        public String filingFrequencyId { get; set; }
 
         /// <summary>
         /// A 16-bit bitmap containing a 1 for each month when the return should be filed.
@@ -218,19 +218,19 @@ namespace Avalara.AvaTax.RestClient
         /// This date specifies the earliest date for tax transactions that should be reported on this filing calendar.
         /// Please note that tax is usually filed one month in arrears: for example, tax for January transactions is typically filed during the month of February.
         /// </summary>
-        public DateTime? effectiveDate { get; set; }
+        public String effectiveDate { get; set; }
 
         /// <summary>
         /// The last date for the tax period when this return should be filed.
         /// This date specifies the last date for tax transactions that should be reported on this filing calendar.
         /// Please note that tax is usually filed one month in arrears: for example, tax for January transactions is typically filed during the month of February.
         /// </summary>
-        public DateTime? endDate { get; set; }
+        public String endDate { get; set; }
 
         /// <summary>
         /// The method to be used when filing this return.
         /// </summary>
-        public FilingTypeId? filingTypeId { get; set; }
+        public String filingTypeId { get; set; }
 
         /// <summary>
         /// If you file electronically, this is the username you use to log in to the tax authority's website.
@@ -256,7 +256,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of tax to report on this return.
         /// </summary>
-        public MatchingTaxType taxTypeId { get; set; }
+        public String taxTypeId { get; set; }
 
         /// <summary>
         /// Internal filing notes.

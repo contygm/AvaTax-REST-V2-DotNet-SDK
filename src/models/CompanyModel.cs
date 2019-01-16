@@ -92,7 +92,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If this company participates in Streamlined Sales Tax, this is the date when the company joined the SST program.
         /// </summary>
-        public DateTime? sstEffectiveDate { get; set; }
+        public String sstEffectiveDate { get; set; }
 
         /// <summary>
         /// The two character ISO-3166 country code of the default country for this company.
@@ -107,7 +107,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Indicates whether this company prefers to round amounts at the document level or line level.
         /// </summary>
-        public RoundingLevelId? roundingLevelId { get; set; }
+        public String roundingLevelId { get; set; }
 
         /// <summary>
         /// Set this value to true to receive warnings in API calls via SOAP.
@@ -123,7 +123,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Used to apply tax detail dependency at a jurisdiction level.
         /// </summary>
-        public TaxDependencyLevelId? taxDependencyLevelId { get; set; }
+        public String taxDependencyLevelId { get; set; }
 
         /// <summary>
         /// Set this value to true to indicate that you are still working to finish configuring this company.

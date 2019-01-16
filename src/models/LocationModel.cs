@@ -46,12 +46,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Indicates whether this location is a physical place of business or a temporary salesperson location.
         /// </summary>
-        public AddressTypeId addressTypeId { get; set; }
+        public String addressTypeId { get; set; }
 
         /// <summary>
         /// Indicates the type of place of business represented by this location.
         /// </summary>
-        public AddressCategoryId addressCategoryId { get; set; }
+        public String addressCategoryId { get; set; }
 
         /// <summary>
         /// The first line of the physical address of this location.
@@ -131,12 +131,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date when this location was opened for business, or null if not known.
         /// </summary>
-        public DateTime? effectiveDate { get; set; }
+        public String effectiveDate { get; set; }
 
         /// <summary>
         /// If this place of business has closed, the date when this location closed business.
         /// </summary>
-        public DateTime? endDate { get; set; }
+        public String endDate { get; set; }
 
         /// <summary>
         /// The most recent date when a transaction was processed for this location. Set by AvaTax.

@@ -37,7 +37,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The unique ID number of the account that received this notification.
         /// </summary>
-        public Int32 accountId { get; set; }
+        public Int32? accountId { get; set; }
 
         /// <summary>
         /// If this notification was tied to a specific company, this will be the
@@ -69,7 +69,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The severity level of the notification.
         /// </summary>
-        public NotificationSeverityLevel severityLevelId { get; set; }
+        public String severityLevelId { get; set; }
 
         /// <summary>
         /// The category of this notification.

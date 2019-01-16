@@ -42,7 +42,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The filing frequency of the request
         /// </summary>
-        public FilingFrequencyId filingFrequencyId { get; set; }
+        public String filingFrequencyId { get; set; }
 
         /// <summary>
         /// State registration ID of the company requesting the filing calendar.
@@ -57,7 +57,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of tax to report on this return.
         /// </summary>
-        public MatchingTaxType? taxTypeId { get; set; }
+        public String taxTypeId { get; set; }
 
         /// <summary>
         /// Location code of the request
@@ -67,12 +67,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Filing cycle effective date of the request
         /// </summary>
-        public DateTime effDate { get; set; }
+        public String effDate { get; set; }
 
         /// <summary>
         /// Filing cycle end date of the request
         /// </summary>
-        public DateTime? endDate { get; set; }
+        public String endDate { get; set; }
 
         /// <summary>
         /// Flag if the request is a clone of a current filing calendar

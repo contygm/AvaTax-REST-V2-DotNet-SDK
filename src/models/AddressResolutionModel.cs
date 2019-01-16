@@ -40,7 +40,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The resolution quality of the geospatial coordinates
         /// </summary>
-        public ResolutionQuality? resolutionQuality { get; set; }
+        public String resolutionQuality { get; set; }
 
         /// <summary>
         /// List of informational and warning messages regarding this address

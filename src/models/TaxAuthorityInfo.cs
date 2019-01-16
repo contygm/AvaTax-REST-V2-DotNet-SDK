@@ -35,7 +35,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of jurisdiction referenced by this tax authority.
         /// </summary>
-        public JurisdictionType? jurisdictionType { get; set; }
+        public String jurisdictionType { get; set; }
 
         /// <summary>
         /// An Avalara-assigned signature code for this tax authority.

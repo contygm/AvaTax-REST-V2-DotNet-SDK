@@ -50,12 +50,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If this UPC became effective on a certain date, this contains the first date on which the UPC was effective.
         /// </summary>
-        public DateTime? effectiveDate { get; set; }
+        public String effectiveDate { get; set; }
 
         /// <summary>
         /// If this UPC expired or will expire on a certain date, this contains the last date on which the UPC was effective.
         /// </summary>
-        public DateTime? endDate { get; set; }
+        public String endDate { get; set; }
 
         /// <summary>
         /// A usage identifier for this UPC code.

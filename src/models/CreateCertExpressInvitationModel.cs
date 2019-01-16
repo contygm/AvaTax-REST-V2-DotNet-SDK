@@ -64,7 +64,7 @@ namespace Avalara.AvaTax.RestClient
         /// * If you specify `Fax`, the invitation will be sent via fax to the customer's fax number on file.
         /// * If you specify `Download`, the invitation will be prepared as a web link that you can display to the customer.
         /// </summary>
-        public CertificateRequestDeliveryMethod? deliveryMethod { get; set; }
+        public String deliveryMethod { get; set; }
 
 
         /// <summary>

@@ -35,12 +35,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// How to proceed if the rule crashes
         /// </summary>
-        public AdvancedRuleCrashBehavior? crashBehavior { get; set; }
+        public String crashBehavior { get; set; }
 
         /// <summary>
         /// The type of script - request or response
         /// </summary>
-        public AdvancedRuleScriptType? scriptType { get; set; }
+        public String scriptType { get; set; }
 
         /// <summary>
         /// The JavaScript rule

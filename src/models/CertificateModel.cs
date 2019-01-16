@@ -38,12 +38,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date when this certificate was signed.
         /// </summary>
-        public DateTime signedDate { get; set; }
+        public String signedDate { get; set; }
 
         /// <summary>
         /// Expiration date when this certificate will no longer be valid.
         /// </summary>
-        public DateTime expirationDate { get; set; }
+        public String expirationDate { get; set; }
 
         /// <summary>
         /// File name for the image of this certificate.
@@ -110,7 +110,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date/time when this record was last modified.
         /// </summary>
-        public DateTime? modifiedDate { get; set; }
+        public String modifiedDate { get; set; }
 
         /// <summary>
         /// Number of pages contained within this certificate.

@@ -46,12 +46,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The effective date of the filing calendar (only applies if cloning).
         /// </summary>
-        public DateTime? clonedCalendarEffDate { get; set; }
+        public String clonedCalendarEffDate { get; set; }
 
         /// <summary>
         /// The expired end date of the old filing calendar (only applies if cloning).
         /// </summary>
-        public DateTime? expiredCalendarEndDate { get; set; }
+        public String expiredCalendarEndDate { get; set; }
 
 
         /// <summary>

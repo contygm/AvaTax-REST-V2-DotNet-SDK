@@ -85,12 +85,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date this tax region starts to take effect.
         /// </summary>
-        public DateTime? effectiveDate { get; set; }
+        public String effectiveDate { get; set; }
 
         /// <summary>
         /// The date this tax region stops to take effect.
         /// </summary>
-        public DateTime? endDate { get; set; }
+        public String endDate { get; set; }
 
         /// <summary>
         /// Is Acm flag.

@@ -79,12 +79,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date when this override first takes effect. Set this value to null to affect all dates up to the end date.
         /// </summary>
-        public DateTime? effectiveDate { get; set; }
+        public String effectiveDate { get; set; }
 
         /// <summary>
         /// The date when this override will cease to take effect. Set this value to null to never expire.
         /// </summary>
-        public DateTime? endDate { get; set; }
+        public String endDate { get; set; }
 
         /// <summary>
         /// The date when this record was created.
@@ -119,7 +119,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The boundary level of this override
         /// </summary>
-        public BoundaryLevel? boundaryLevel { get; set; }
+        public String boundaryLevel { get; set; }
 
         /// <summary>
         /// True if this is a default boundary

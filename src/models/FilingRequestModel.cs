@@ -36,7 +36,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The current status of this request
         /// </summary>
-        public FilingRequestStatus? filingRequestStatusId { get; set; }
+        public String filingRequestStatusId { get; set; }
 
         /// <summary>
         /// The data model object of the request

@@ -27,7 +27,7 @@ namespace Avalara.AvaTax.RestClient
         /// To void the transaction, please specify the reason 'DocVoided'.
         /// If you do not provide a reason, the void command will fail.
         /// </summary>
-        public VoidReasonCode code { get; set; }
+        public String code { get; set; }
 
 
         /// <summary>

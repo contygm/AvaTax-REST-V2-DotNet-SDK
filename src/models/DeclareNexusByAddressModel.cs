@@ -40,7 +40,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Specify the text case for the validated address result. If not specified, will return uppercase.
         /// </summary>
-        public TextCase? textCase { get; set; }
+        public String textCase { get; set; }
 
         /// <summary>
         /// First line of the street address
