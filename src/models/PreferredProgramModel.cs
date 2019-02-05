@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -51,13 +50,13 @@ namespace Avalara.AvaTax.RestClient
         /// The earliest date for which this preferred program can be used in AvaTax. If `null`, this preferred program
         /// is valid for all dates earlier than `endDate`.
         /// </summary>
-        public String effectiveDate { get; set; }
+        public DateTime? effectiveDate { get; set; }
 
         /// <summary>
         /// The latest date for which this preferred program can be used in AvaTax. If `null`, this preferred program
         /// is valid for all dates later than `effectiveDate`.
         /// </summary>
-        public String endDate { get; set; }
+        public DateTime? endDate { get; set; }
 
 
         /// <summary>

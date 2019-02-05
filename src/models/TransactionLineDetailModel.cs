@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -106,12 +105,12 @@ namespace Avalara.AvaTax.RestClient
         /// (DEPRECATED) The type of the jurisdiction to which this tax detail applies.
         /// NOTE: Use jurisdictionTypeId instead.
         /// </summary>
-        public String jurisType { get; set; }
+        public JurisTypeId? jurisType { get; set; }
 
         /// <summary>
         /// The type of the jurisdiction in which this tax detail applies.
         /// </summary>
-        public String jurisdictionType { get; set; }
+        public JurisdictionType? jurisdictionType { get; set; }
 
         /// <summary>
         /// The amount of this line item that was considered nontaxable in this tax detail.
@@ -126,7 +125,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of nontaxability that was applied to this tax detail.
         /// </summary>
-        public String nonTaxableType { get; set; }
+        public TaxRuleTypeId? nonTaxableType { get; set; }
 
         /// <summary>
         /// The rate at which this tax detail was calculated.
@@ -151,7 +150,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Indicates whether this tax detail applies to the origin or destination of the transaction.
         /// </summary>
-        public String sourcing { get; set; }
+        public Sourcing? sourcing { get; set; }
 
         /// <summary>
         /// The amount of tax for this tax detail.
@@ -166,7 +165,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of tax that was calculated. Depends on the company's nexus settings as well as the jurisdiction's tax laws.
         /// </summary>
-        public String taxType { get; set; }
+        public TaxType? taxType { get; set; }
 
         /// <summary>
         /// The id of the tax subtype.
@@ -208,7 +207,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// (DEPRECATED) The rate type for this tax detail. Please use rateTypeCode instead.
         /// </summary>
-        public String rateType { get; set; }
+        public RateType? rateType { get; set; }
 
         /// <summary>
         /// Indicates the code of the rate type that was used to calculate this tax detail. Use [ListRateTypesByCountry](https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ListRateTypesByCountry/) API for a full list of rate type codes.

@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -62,7 +61,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// NoticeCustomerTypeID can be retrieved from the definitions API
         /// </summary>
-        public String customerTypeId { get; set; }
+        public NoticeCustomerType customerTypeId { get; set; }
 
         /// <summary>
         /// Name or ISO 3166 code identifying the country that sent this notice.
@@ -97,12 +96,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The filing frequency of the notice
         /// </summary>
-        public String filingFrequency { get; set; }
+        public FilingFrequencyId? filingFrequency { get; set; }
 
         /// <summary>
         /// The filing type of the notice
         /// </summary>
-        public String filingTypeId { get; set; }
+        public TaxNoticeFilingTypeId? filingTypeId { get; set; }
 
         /// <summary>
         /// The ticket reference number of the notice
@@ -152,12 +151,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The notice customer funding options
         /// </summary>
-        public String customerFundingOptionId { get; set; }
+        public FundingOption? customerFundingOptionId { get; set; }
 
         /// <summary>
         /// The priority of the notice
         /// </summary>
-        public String priorityId { get; set; }
+        public NoticePriorityId priorityId { get; set; }
 
         /// <summary>
         /// Comments from the customer on this notice

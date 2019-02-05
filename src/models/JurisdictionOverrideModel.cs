@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -79,12 +78,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date when this override first takes effect. Set this value to null to affect all dates up to the end date.
         /// </summary>
-        public String effectiveDate { get; set; }
+        public DateTime? effectiveDate { get; set; }
 
         /// <summary>
         /// The date when this override will cease to take effect. Set this value to null to never expire.
         /// </summary>
-        public String endDate { get; set; }
+        public DateTime? endDate { get; set; }
 
         /// <summary>
         /// The date when this record was created.
@@ -119,7 +118,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The boundary level of this override
         /// </summary>
-        public String boundaryLevel { get; set; }
+        public BoundaryLevel? boundaryLevel { get; set; }
 
         /// <summary>
         /// True if this is a default boundary

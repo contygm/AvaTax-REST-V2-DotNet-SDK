@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -25,7 +24,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Identifies the type of tax override
         /// </summary>
-        public String type { get; set; }
+        public TaxOverrideType? type { get; set; }
 
         /// <summary>
         /// Indicates a total override of the calculated tax on the document. AvaTax will distribute
@@ -43,7 +42,7 @@ namespace Avalara.AvaTax.RestClient
         /// as in the case of a layaway, return or other reason indicated by the Reason element.
         /// If the date is not overridden, then it should be set to the same as the DocDate.
         /// </summary>
-        public String taxDate { get; set; }
+        public DateTime? taxDate { get; set; }
 
         /// <summary>
         /// This provides the reason for a tax override for audit purposes. It is required for types 2-4.

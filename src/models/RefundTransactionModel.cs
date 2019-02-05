@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -31,7 +30,7 @@ namespace Avalara.AvaTax.RestClient
         /// The date of the refund. For customers using Avalara's Managed Returns Service, this date controls the month in which the refund
         /// transaction will be reported on a tax filing.
         /// </summary>
-        public String refundDate { get; set; }
+        public DateTime refundDate { get; set; }
 
         /// <summary>
         /// Type of this refund. 
@@ -44,7 +43,7 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// To issue a percentage-based discount, specify `Percentage`.
         /// </summary>
-        public String refundType { get; set; }
+        public RefundType? refundType { get; set; }
 
         /// <summary>
         /// The percentage for refund.

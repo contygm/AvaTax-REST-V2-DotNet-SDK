@@ -8,17 +8,16 @@ using System.Threading.Tasks;
 /*
  * AvaTax Software Development Kit for C#
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author     Ted Spence <ted.spence@avalara.com>
- * @author     Zhenya Frolov <zhenya.frolov@avalara.com>
+ * @author     Genevieve Conty <genevieve.conty@avalara.com>
  * @author     Greg Hester <greg.hester@avalara.com>
- * @copyright  2004-2018 Avalara, Inc.
+ * @copyright  2004-2019 Avalara, Inc.
  * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @version    19.1.0
+ * @version    19.1.1
  * @link       https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK
  */
 
@@ -29,7 +28,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Returns the version number of the API used to generate this class
         /// </summary>
-        public static string API_VERSION { get { return "19.1.0"; } }
+        public static string API_VERSION { get { return "19.1.1"; } }
 
 #region Methods
 
@@ -248,7 +247,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="postalCode">Postal Code / Zip Code</param>
         /// <param name="country">Two character ISO 3166 Country Code (see /api/v2/definitions/countries for a full list)</param>
         /// <param name="textCase">selectable text case for address validation</param>
-        public AddressResolutionModel ResolveAddress(String line1, String line2, String line3, String city, String region, String postalCode, String country, String textCase)
+        public AddressResolutionModel ResolveAddress(String line1, String line2, String line3, String city, String region, String postalCode, String country, TextCase? textCase)
         {
             var path = new AvaTaxPath("/api/v2/addresses/resolve");
             path.AddQuery("line1", line1);
@@ -292,7 +291,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId">The ID of the account that owns the Advanced Rule.</param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public AdvancedRuleScriptModel ApproveAdvancedRuleScript(Int32 accountId, String scriptType)
+        public AdvancedRuleScriptModel ApproveAdvancedRuleScript(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}/approve");
             path.ApplyField("accountId", accountId);
@@ -313,7 +312,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="scriptType">The script transform type, Request or Response.</param>
         /// <param name="crashBehavior">The behavior the script should take if it crashes: Fail or Proceed.</param>
         /// <param name="file">The JavaScript file containing the advanced rule.</param>
-        public String CreateAdvancedRuleScript(Int32 accountId, String scriptType, String crashBehavior, FileResult file)
+        public String CreateAdvancedRuleScript(Int32 accountId, AdvancedRuleScriptType scriptType, AdvancedRuleCrashBehavior? crashBehavior, FileResult file)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}");
             path.ApplyField("accountId", accountId);
@@ -353,7 +352,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId">The ID of the account that owns the Advanced Rule.</param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public List<ErrorDetail> DeleteAdvancedRuleScript(Int32 accountId, String scriptType)
+        public List<ErrorDetail> DeleteAdvancedRuleScript(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}");
             path.ApplyField("accountId", accountId);
@@ -391,7 +390,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId"></param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public AdvancedRuleScriptModel DisableAdvancedRuleScript(Int32 accountId, String scriptType)
+        public AdvancedRuleScriptModel DisableAdvancedRuleScript(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}/disable");
             path.ApplyField("accountId", accountId);
@@ -410,7 +409,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId"></param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public AdvancedRuleScriptModel EnableAdvancedRuleScript(Int32 accountId, String scriptType)
+        public AdvancedRuleScriptModel EnableAdvancedRuleScript(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}/enable");
             path.ApplyField("accountId", accountId);
@@ -429,7 +428,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId">The ID of the account that owns the Advanced Rule.</param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public AdvancedRuleScriptModel GetAdvancedRuleScript(Int32 accountId, String scriptType)
+        public AdvancedRuleScriptModel GetAdvancedRuleScript(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}");
             path.ApplyField("accountId", accountId);
@@ -484,7 +483,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId">The ID of the account that owns the Advanced Rule.</param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public AdvancedRuleScriptModel UnapproveAdvancedRuleScript(Int32 accountId, String scriptType)
+        public AdvancedRuleScriptModel UnapproveAdvancedRuleScript(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}/unapprove");
             path.ApplyField("accountId", accountId);
@@ -965,7 +964,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="id">The unique ID number of this certificate</param>
         /// <param name="page">If you choose `$type`=`Jpeg`, you must specify which page number to retrieve.</param>
         /// <param name="type">The data format in which to retrieve the certificate image</param>
-        public FileResult DownloadCertificateImage(Int32 companyId, Int32 id, Int32? page, String type)
+        public FileResult DownloadCertificateImage(Int32 companyId, Int32 id, Int32? page, CertificatePreviewType? type)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyId}/certificates/{id}/attachment");
             path.ApplyField("companyId", companyId);
@@ -1703,181 +1702,6 @@ namespace Avalara.AvaTax.RestClient
             var path = new AvaTaxPath("/api/v2/companies/{id}");
             path.ApplyField("id", id);
             return RestCall<CompanyModel>("PUT", path, model);
-        }
-
-
-        /// <summary>
-        /// Retrieve a single tax rate.
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.
-        /// </remarks>
-        /// <param name="id">The ID of the tax rate to retrieve.</param>
-        public ComplianceTaxRateModel GetTaxRate(Int32 id)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/taxrates/{id}");
-            path.ApplyField("id", id);
-            return RestCall<ComplianceTaxRateModel>("GET", path, null);
-        }
-
-
-        /// <summary>
-        /// Retrieve a single tax region.
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.
-        /// </remarks>
-        /// <param name="id">The ID of the tax region to retrieve.</param>
-        public TaxRegionModel GetTaxRegion(Int32 id)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/taxregions/{id}");
-            path.ApplyField("id", id);
-            return RestCall<TaxRegionModel>("GET", path, null);
-        }
-
-
-        /// <summary>
-        /// Retrieve jurisdictions and rates in a combined format.
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.
-        /// </remarks>
-        /// <param name="effectiveDate">Used to limit the jurisdictions returned.</param>
-        /// <param name="endDate">Used to limit the jurisdictions returned.</param>
-        /// <param name="filter">A filter statement to identify specific records to retrieve. For more information on filtering, see [Filtering in REST](http://developer.avalara.com/avatax/filtering-in-rest/) .</param>
-        /// <param name="include">A comma separated list of objects to fetch underneath this jurisdiction.</param>
-        /// <param name="top">If nonzero, return no more than this number of results. Used with `$skip` to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.</param>
-        /// <param name="skip">If nonzero, skip this number of results before returning data. Used with `$top` to provide pagination for large datasets.</param>
-        /// <param name="orderBy">A comma separated list of sort statements in the format `(fieldname) [ASC|DESC]`, for example `id ASC`.</param>
-        public ComplianceJurisdictionRateModel QueryJurisdictionRates(DateTime? effectiveDate, DateTime? endDate, String filter, String include, Int32? top, Int32? skip, String orderBy)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/jurisdictionrates");
-            path.AddQuery("effectiveDate", effectiveDate);
-            path.AddQuery("endDate", endDate);
-            path.AddQuery("$filter", filter);
-            path.AddQuery("$include", include);
-            path.AddQuery("$top", top);
-            path.AddQuery("$skip", skip);
-            path.AddQuery("$orderBy", orderBy);
-            return RestCall<ComplianceJurisdictionRateModel>("GET", path, null);
-        }
-
-
-        /// <summary>
-        /// Retrieve all unique jurisdictions.
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.
-        /// 
-        /// You may specify one or more of the following values in the '$include' parameter to fetch additional nested data, using commas to separate multiple values:
-        /// 
-        /// * TaxRates
-        /// </remarks>
-        /// <param name="country">The two-character ISO-3166 code for the country.</param>
-        /// <param name="region">The two or three character region code for the region.</param>
-        /// <param name="effectiveDate">Used to limit the jurisdictions or rates returned.</param>
-        /// <param name="endDate">Used to limit the jurisdictions or rates returned.</param>
-        /// <param name="aggregationOption">Aggregation method used if rates are returned using the '$include' parameter.</param>
-        /// <param name="include">A comma separated list of objects to fetch underneath this tax rate.</param>
-        /// <param name="top">If nonzero, return no more than this number of results. Used with `$skip` to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.</param>
-        /// <param name="skip">If nonzero, skip this number of results before returning data. Used with `$top` to provide pagination for large datasets.</param>
-        public ComplianceJurisdictionModel QueryJurisdictions(String country, String region, DateTime? effectiveDate, DateTime? endDate, String aggregationOption, String include, Int32? top, Int32? skip)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/jurisdictions/{country}/{region}");
-            path.ApplyField("country", country);
-            path.ApplyField("region", region);
-            path.AddQuery("effectiveDate", effectiveDate);
-            path.AddQuery("endDate", endDate);
-            path.AddQuery("aggregationOption", aggregationOption);
-            path.AddQuery("$include", include);
-            path.AddQuery("$top", top);
-            path.AddQuery("$skip", skip);
-            return RestCall<ComplianceJurisdictionModel>("GET", path, null);
-        }
-
-
-        /// <summary>
-        /// Retrieve all tax rates.
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.
-        /// </remarks>
-        /// <param name="filter">A filter statement to identify specific records to retrieve. For more information on filtering, see [Filtering in REST](http://developer.avalara.com/avatax/filtering-in-rest/) .</param>
-        /// <param name="include">A comma separated list of objects to fetch underneath this tax rate.</param>
-        /// <param name="top">If nonzero, return no more than this number of results. Used with `$skip` to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.</param>
-        /// <param name="skip">If nonzero, skip this number of results before returning data. Used with `$top` to provide pagination for large datasets.</param>
-        /// <param name="orderBy">A comma separated list of sort statements in the format `(fieldname) [ASC|DESC]`, for example `id ASC`.</param>
-        public ComplianceTaxRateModel QueryTaxRates(String filter, String include, Int32? top, Int32? skip, String orderBy)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/taxrates");
-            path.AddQuery("$filter", filter);
-            path.AddQuery("$include", include);
-            path.AddQuery("$top", top);
-            path.AddQuery("$skip", skip);
-            path.AddQuery("$orderBy", orderBy);
-            return RestCall<ComplianceTaxRateModel>("GET", path, null);
-        }
-
-
-        /// <summary>
-        /// Retrieve all tax region jurisdictions.
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.
-        /// </remarks>
-        /// <param name="filter">A filter statement to identify specific records to retrieve. For more information on filtering, see [Filtering in REST](http://developer.avalara.com/avatax/filtering-in-rest/) .</param>
-        /// <param name="include">A comma separated list of objects to fetch underneath this tax region jurisdiction.</param>
-        /// <param name="top">If nonzero, return no more than this number of results. Used with `$skip` to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.</param>
-        /// <param name="skip">If nonzero, skip this number of results before returning data. Used with `$top` to provide pagination for large datasets.</param>
-        /// <param name="orderBy">A comma separated list of sort statements in the format `(fieldname) [ASC|DESC]`, for example `id ASC`.</param>
-        public TaxRegionJurisdictionModel QueryTaxRegionJurisdictions(String filter, String include, Int32? top, Int32? skip, String orderBy)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/taxregionjurisdictions");
-            path.AddQuery("$filter", filter);
-            path.AddQuery("$include", include);
-            path.AddQuery("$top", top);
-            path.AddQuery("$skip", skip);
-            path.AddQuery("$orderBy", orderBy);
-            return RestCall<TaxRegionJurisdictionModel>("GET", path, null);
-        }
-
-
-        /// <summary>
-        /// Retrieve all tax regions.
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.
-        /// </remarks>
-        /// <param name="filter">A filter statement to identify specific records to retrieve. For more information on filtering, see [Filtering in REST](http://developer.avalara.com/avatax/filtering-in-rest/) .</param>
-        /// <param name="include">A comma separated list of objects to fetch underneath this tax region.</param>
-        /// <param name="top">If nonzero, return no more than this number of results. Used with `$skip` to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.</param>
-        /// <param name="skip">If nonzero, skip this number of results before returning data. Used with `$top` to provide pagination for large datasets.</param>
-        /// <param name="orderBy">A comma separated list of sort statements in the format `(fieldname) [ASC|DESC]`, for example `id ASC`.</param>
-        public TaxRegionModel QueryTaxRegions(String filter, String include, Int32? top, Int32? skip, String orderBy)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/taxregions");
-            path.AddQuery("$filter", filter);
-            path.AddQuery("$include", include);
-            path.AddQuery("$top", top);
-            path.AddQuery("$skip", skip);
-            path.AddQuery("$orderBy", orderBy);
-            return RestCall<TaxRegionModel>("GET", path, null);
-        }
-
-
-        /// <summary>
-        /// API to modify the reference fields at the document and the line level.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <param name="companyId"></param>
-        /// <param name="model"></param>
-        public FetchResult<TransactionModel> TagTransaction(Int32 companyId, List<TransactionReferenceFieldModel> model)
-        {
-            var path = new AvaTaxPath("/api/v2/companies/{companyId}/transactions/tag");
-            path.ApplyField("companyId", companyId);
-            return RestCall<FetchResult<TransactionModel>>("PUT", path, model);
         }
 
 
@@ -4887,7 +4711,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="country">The country of the return(s) you are trying to retrieve</param>
         /// <param name="region">The region of the return(s) you are trying to retrieve</param>
         /// <param name="filingCalendarId">The filing calendar id of the return you are trying to retrieve</param>
-        public FetchResult<FilingReturnModelBasic> GetFilingsReturns(Int32 companyId, Int32? endPeriodMonth, Int32? endPeriodYear, String frequency, String status, String country, String region, Int64? filingCalendarId)
+        public FetchResult<FilingReturnModelBasic> GetFilingsReturns(Int32 companyId, Int32? endPeriodMonth, Int32? endPeriodYear, FilingFrequencyId? frequency, FilingStatusId? status, String country, String region, Int64? filingCalendarId)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyId}/filings/returns");
             path.ApplyField("companyId", companyId);
@@ -6039,7 +5863,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="type">The transaction type for this MultiDocument transaction</param>
         /// <param name="include">Specifies objects to include in this fetch call</param>
         /// <param name="model">The adjust request you wish to execute</param>
-        public MultiDocumentModel AdjustMultiDocumentTransaction(String code, String type, String include, AdjustMultiDocumentModel model)
+        public MultiDocumentModel AdjustMultiDocumentTransaction(String code, DocumentType type, String include, AdjustMultiDocumentModel model)
         {
             var path = new AvaTaxPath("/api/v2/transactions/multidocument/{code}/type/{type}/adjust");
             path.ApplyField("code", code);
@@ -6070,7 +5894,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="code">The transaction code for this MultiDocument transaction</param>
         /// <param name="type">The transaction type for this MultiDocument transaction</param>
-        public AuditMultiDocumentModel AuditMultiDocumentTransaction(String code, String type)
+        public AuditMultiDocumentModel AuditMultiDocumentTransaction(String code, DocumentType type)
         {
             var path = new AvaTaxPath("/api/v2/transactions/multidocument/{code}/type/{type}/audit");
             path.ApplyField("code", code);
@@ -6167,7 +5991,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="code"></param>
         /// <param name="type"></param>
         /// <param name="include">Specifies objects to include in the response after transaction is created</param>
-        public MultiDocumentModel GetMultiDocumentTransactionByCodeAndType(String code, String type, String include)
+        public MultiDocumentModel GetMultiDocumentTransactionByCodeAndType(String code, DocumentType type, String include)
         {
             var path = new AvaTaxPath("/api/v2/transactions/multidocument/{code}/type/{type}");
             path.ApplyField("code", code);
@@ -6300,7 +6124,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="type">The type of this MultiDocument transaction</param>
         /// <param name="include">Specifies objects to include in the response after transaction is created</param>
         /// <param name="model">Information about the refund to create</param>
-        public MultiDocumentModel RefundMultiDocumentTransaction(String code, String type, String include, RefundTransactionModel model)
+        public MultiDocumentModel RefundMultiDocumentTransaction(String code, DocumentType type, String include, RefundTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/transactions/multidocument/{code}/type/{type}/refund");
             path.ApplyField("code", code);
@@ -6346,7 +6170,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="code">The transaction code for this MultiDocument transaction</param>
         /// <param name="type">The transaction type for this MultiDocument transaction</param>
         /// <param name="model">The void request you wish to execute</param>
-        public MultiDocumentModel VoidMultiDocumentTransaction(String code, String type, VoidTransactionModel model)
+        public MultiDocumentModel VoidMultiDocumentTransaction(String code, DocumentType type, VoidTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/transactions/multidocument/{code}/type/{type}/void");
             path.ApplyField("code", code);
@@ -6518,29 +6342,6 @@ namespace Avalara.AvaTax.RestClient
             path.AddQuery("$skip", skip);
             path.AddQuery("$orderBy", orderBy);
             return RestCall<FetchResult<NexusModel>>("GET", path, null);
-        }
-
-
-        /// <summary>
-        /// Summarize nexus by NexusTaxTypeGroup for this company
-        /// </summary>
-        /// <remarks>
-        /// Provides a summary of nexus information useful for quickly displaying key information.
-        /// 
-        /// The concept of Nexus indicates a place where your company is legally obligated to collect and remit transactional 
-        /// taxes. The legal requirements for nexus may vary per country and per jurisdiction; please seek advice from your
-        /// accountant or lawyer prior to declaring nexus.
-        /// 
-        /// This API produces only basic information about your company's nexus declarations. For example, it will show
-        /// the number of nexus declarations of each tax type. To request more information about your company's nexus 
-        /// declarations, please use `QueryNexus` or `ListNexusByCompany`.
-        /// </remarks>
-        /// <param name="companyId">The ID of the company that owns these nexus objects</param>
-        public NexusSummaryModel NexusSummary(Int32 companyId)
-        {
-            var path = new AvaTaxPath("/api/v2/companies/{companyId}/nexus/summary");
-            path.ApplyField("companyId", companyId);
-            return RestCall<NexusSummaryModel>("GET", path, null);
         }
 
 
@@ -8019,7 +7820,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="format">The format of the file (JSON by default)</param>
         /// <param name="partnerId">If specified, requests a custom partner-formatted version of the file.</param>
         /// <param name="includeJurisCodes">When true, the file will include jurisdiction codes in the result.</param>
-        public FileResult BuildTaxContentFileForLocation(Int32 companyId, Int32 id, DateTime? date, String format, String partnerId, Boolean? includeJurisCodes)
+        public FileResult BuildTaxContentFileForLocation(Int32 companyId, Int32 id, DateTime? date, PointOfSaleFileType? format, PointOfSalePartnerId? partnerId, Boolean? includeJurisCodes)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyId}/locations/{id}/pointofsaledata");
             path.ApplyField("companyId", companyId);
@@ -8028,29 +7829,6 @@ namespace Avalara.AvaTax.RestClient
             path.AddQuery("format", format);
             path.AddQuery("partnerId", partnerId);
             path.AddQuery("includeJurisCodes", includeJurisCodes);
-            return RestCallFile("GET", path, null);
-        }
-
-
-        /// <summary>
-        /// Retrieve send-sale tax content for this company.
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.
-        /// </remarks>
-        /// <param name="date">The date for which we are fetching tax content.</param>
-        /// <param name="taxCode">The tax code for which we are fetching tax content.</param>
-        /// <param name="companyId">The unique ID number of the company which is fetching tax content.</param>
-        /// <param name="format">Requests a specific data format for this content file.</param>
-        /// <param name="type">Requests a specific encoding for this content file.</param>
-        public FileResult DownloadSendSalesRateFile(DateTime date, String taxCode, Int32 companyId, String format, String type)
-        {
-            var path = new AvaTaxPath("/api/v2/sendsalescontent/download/{companyId}/{taxCode}/{date}");
-            path.ApplyField("date", date.ToString("o"));
-            path.ApplyField("taxCode", taxCode);
-            path.ApplyField("companyId", companyId);
-            path.AddQuery("format", format);
-            path.AddQuery("type", type);
             return RestCallFile("GET", path, null);
         }
 
@@ -8360,7 +8138,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to adjust</param>
         /// <param name="documentType">(Optional): The document type of the transaction to adjust.</param>
         /// <param name="model">The adjustment you wish to make</param>
-        public TransactionModel AdjustTransaction(String companyCode, String transactionCode, String documentType, AdjustTransactionModel model)
+        public TransactionModel AdjustTransaction(String companyCode, String transactionCode, DocumentType? documentType, AdjustTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/adjust");
             path.ApplyField("companyCode", companyCode);
@@ -8424,7 +8202,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="companyCode">The code identifying the company that owns this transaction</param>
         /// <param name="transactionCode">The code identifying the transaction</param>
         /// <param name="documentType">The document type of the original transaction</param>
-        public AuditTransactionModel AuditTransactionWithType(String companyCode, String transactionCode, String documentType)
+        public AuditTransactionModel AuditTransactionWithType(String companyCode, String transactionCode, DocumentType documentType)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/types/{documentType}/audit");
             path.ApplyField("companyCode", companyCode);
@@ -8474,7 +8252,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to change</param>
         /// <param name="documentType">(Optional): The document type of the transaction to change document code. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The code change request you wish to execute</param>
-        public TransactionModel ChangeTransactionCode(String companyCode, String transactionCode, String documentType, ChangeTransactionCodeModel model)
+        public TransactionModel ChangeTransactionCode(String companyCode, String transactionCode, DocumentType? documentType, ChangeTransactionCodeModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/changecode");
             path.ApplyField("companyCode", companyCode);
@@ -8503,7 +8281,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to commit</param>
         /// <param name="documentType">(Optional): The document type of the transaction to commit. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The commit request you wish to execute</param>
-        public TransactionModel CommitTransaction(String companyCode, String transactionCode, String documentType, CommitTransactionModel model)
+        public TransactionModel CommitTransaction(String companyCode, String transactionCode, DocumentType? documentType, CommitTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/commit");
             path.ApplyField("companyCode", companyCode);
@@ -8665,7 +8443,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to retrieve</param>
         /// <param name="documentType">(Optional): The document type of the transaction to retrieve</param>
         /// <param name="include">Specifies objects to include in this fetch call</param>
-        public TransactionModel GetTransactionByCode(String companyCode, String transactionCode, String documentType, String include)
+        public TransactionModel GetTransactionByCode(String companyCode, String transactionCode, DocumentType? documentType, String include)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}");
             path.ApplyField("companyCode", companyCode);
@@ -8686,7 +8464,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to retrieve</param>
         /// <param name="documentType">The transaction type to retrieve</param>
         /// <param name="include">Specifies objects to include in this fetch call</param>
-        public TransactionModel GetTransactionByCodeAndType(String companyCode, String transactionCode, String documentType, String include)
+        public TransactionModel GetTransactionByCodeAndType(String companyCode, String transactionCode, DocumentType documentType, String include)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/types/{documentType}");
             path.ApplyField("companyCode", companyCode);
@@ -8795,7 +8573,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to lock</param>
         /// <param name="documentType">(Optional): The document type of the transaction to lock. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The lock request you wish to execute</param>
-        public TransactionModel LockTransaction(String companyCode, String transactionCode, String documentType, LockTransactionModel model)
+        public TransactionModel LockTransaction(String companyCode, String transactionCode, DocumentType? documentType, LockTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/lock");
             path.ApplyField("companyCode", companyCode);
@@ -8847,7 +8625,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="documentType">(Optional): The document type of the transaction to refund. If not provided, the default is SalesInvoice.</param>
         /// <param name="useTaxDateOverride">(Optional): If set to true, processes refund using taxDateOverride rather than taxAmountOverride (Note: taxAmountOverride is not allowed for SST states).</param>
         /// <param name="model">Information about the refund to create</param>
-        public TransactionModel RefundTransaction(String companyCode, String transactionCode, String include, String documentType, Boolean? useTaxDateOverride, RefundTransactionModel model)
+        public TransactionModel RefundTransaction(String companyCode, String transactionCode, String include, DocumentType? documentType, Boolean? useTaxDateOverride, RefundTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/refund");
             path.ApplyField("companyCode", companyCode);
@@ -8878,7 +8656,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to settle</param>
         /// <param name="documentType">(Optional): The document type of the transaction to settle. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The data from an external system to reconcile against AvaTax</param>
-        public TransactionModel SettleTransaction(String companyCode, String transactionCode, String documentType, SettleTransactionModel model)
+        public TransactionModel SettleTransaction(String companyCode, String transactionCode, DocumentType? documentType, SettleTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/settle");
             path.ApplyField("companyCode", companyCode);
@@ -8900,7 +8678,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="companyCode">The company code of the company that recorded this transaction</param>
         /// <param name="transactionCode">The transaction code to commit</param>
         /// <param name="documentType">(Optional): The document type of the transaction to commit. If not provided, the default is SalesInvoice.</param>
-        public TransactionModel UncommitTransaction(String companyCode, String transactionCode, String documentType)
+        public TransactionModel UncommitTransaction(String companyCode, String transactionCode, DocumentType? documentType)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/uncommit");
             path.ApplyField("companyCode", companyCode);
@@ -8927,7 +8705,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to settle</param>
         /// <param name="documentType">(Optional): The document type of the transaction to verify. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The data from an external system to reconcile against AvaTax</param>
-        public TransactionModel VerifyTransaction(String companyCode, String transactionCode, String documentType, VerifyTransactionModel model)
+        public TransactionModel VerifyTransaction(String companyCode, String transactionCode, DocumentType? documentType, VerifyTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/verify");
             path.ApplyField("companyCode", companyCode);
@@ -8956,7 +8734,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to void</param>
         /// <param name="documentType">(Optional): The document type of the transaction to void. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The void request you wish to execute. To void a transaction the code must be set to 'DocVoided'</param>
-        public TransactionModel VoidTransaction(String companyCode, String transactionCode, String documentType, VoidTransactionModel model)
+        public TransactionModel VoidTransaction(String companyCode, String transactionCode, DocumentType? documentType, VoidTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/void");
             path.ApplyField("companyCode", companyCode);
@@ -9311,7 +9089,7 @@ namespace Avalara.AvaTax.RestClient
         /// specific features of AvaTax.
         /// </remarks>
         /// <param name="serviceTypeId">The service to check</param>
-        public SubscriptionModel GetMySubscription(String serviceTypeId)
+        public SubscriptionModel GetMySubscription(ServiceTypeId serviceTypeId)
         {
             var path = new AvaTaxPath("/api/v2/utilities/subscriptions/{serviceTypeId}");
             path.ApplyField("serviceTypeId", serviceTypeId);
@@ -9586,7 +9364,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="postalCode">Postal Code / Zip Code</param>
         /// <param name="country">Two character ISO 3166 Country Code (see /api/v2/definitions/countries for a full list)</param>
         /// <param name="textCase">selectable text case for address validation</param>
-        public async Task<AddressResolutionModel> ResolveAddressAsync(String line1, String line2, String line3, String city, String region, String postalCode, String country, String textCase)
+        public async Task<AddressResolutionModel> ResolveAddressAsync(String line1, String line2, String line3, String city, String region, String postalCode, String country, TextCase? textCase)
         {
             var path = new AvaTaxPath("/api/v2/addresses/resolve");
             path.AddQuery("line1", line1);
@@ -9630,7 +9408,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId">The ID of the account that owns the Advanced Rule.</param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public async Task<AdvancedRuleScriptModel> ApproveAdvancedRuleScriptAsync(Int32 accountId, String scriptType)
+        public async Task<AdvancedRuleScriptModel> ApproveAdvancedRuleScriptAsync(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}/approve");
             path.ApplyField("accountId", accountId);
@@ -9651,7 +9429,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="scriptType">The script transform type, Request or Response.</param>
         /// <param name="crashBehavior">The behavior the script should take if it crashes: Fail or Proceed.</param>
         /// <param name="file">The JavaScript file containing the advanced rule.</param>
-        public async Task<String> CreateAdvancedRuleScriptAsync(Int32 accountId, String scriptType, String crashBehavior, FileResult file)
+        public async Task<String> CreateAdvancedRuleScriptAsync(Int32 accountId, AdvancedRuleScriptType scriptType, AdvancedRuleCrashBehavior? crashBehavior, FileResult file)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}");
             path.ApplyField("accountId", accountId);
@@ -9691,7 +9469,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId">The ID of the account that owns the Advanced Rule.</param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public async Task<List<ErrorDetail>> DeleteAdvancedRuleScriptAsync(Int32 accountId, String scriptType)
+        public async Task<List<ErrorDetail>> DeleteAdvancedRuleScriptAsync(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}");
             path.ApplyField("accountId", accountId);
@@ -9729,7 +9507,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId"></param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public async Task<AdvancedRuleScriptModel> DisableAdvancedRuleScriptAsync(Int32 accountId, String scriptType)
+        public async Task<AdvancedRuleScriptModel> DisableAdvancedRuleScriptAsync(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}/disable");
             path.ApplyField("accountId", accountId);
@@ -9748,7 +9526,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId"></param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public async Task<AdvancedRuleScriptModel> EnableAdvancedRuleScriptAsync(Int32 accountId, String scriptType)
+        public async Task<AdvancedRuleScriptModel> EnableAdvancedRuleScriptAsync(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}/enable");
             path.ApplyField("accountId", accountId);
@@ -9767,7 +9545,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId">The ID of the account that owns the Advanced Rule.</param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public async Task<AdvancedRuleScriptModel> GetAdvancedRuleScriptAsync(Int32 accountId, String scriptType)
+        public async Task<AdvancedRuleScriptModel> GetAdvancedRuleScriptAsync(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}");
             path.ApplyField("accountId", accountId);
@@ -9822,7 +9600,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="accountId">The ID of the account that owns the Advanced Rule.</param>
         /// <param name="scriptType">The script transform type: Request or Response.</param>
-        public async Task<AdvancedRuleScriptModel> UnapproveAdvancedRuleScriptAsync(Int32 accountId, String scriptType)
+        public async Task<AdvancedRuleScriptModel> UnapproveAdvancedRuleScriptAsync(Int32 accountId, AdvancedRuleScriptType scriptType)
         {
             var path = new AvaTaxPath("/api/v2/accounts/{accountId}/advancedrulescripts/{scriptType}/unapprove");
             path.ApplyField("accountId", accountId);
@@ -10303,7 +10081,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="id">The unique ID number of this certificate</param>
         /// <param name="page">If you choose `$type`=`Jpeg`, you must specify which page number to retrieve.</param>
         /// <param name="type">The data format in which to retrieve the certificate image</param>
-        public async Task<FileResult> DownloadCertificateImageAsync(Int32 companyId, Int32 id, Int32? page, String type)
+        public async Task<FileResult> DownloadCertificateImageAsync(Int32 companyId, Int32 id, Int32? page, CertificatePreviewType? type)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyId}/certificates/{id}/attachment");
             path.ApplyField("companyId", companyId);
@@ -11041,181 +10819,6 @@ namespace Avalara.AvaTax.RestClient
             var path = new AvaTaxPath("/api/v2/companies/{id}");
             path.ApplyField("id", id);
             return await RestCallAsync<CompanyModel>("PUT", path, model).ConfigureAwait(false);
-        }
-
-
-        /// <summary>
-        /// Retrieve a single tax rate.;
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.;
-        /// </remarks>
-        /// <param name="id">The ID of the tax rate to retrieve.</param>
-        public async Task<ComplianceTaxRateModel> GetTaxRateAsync(Int32 id)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/taxrates/{id}");
-            path.ApplyField("id", id);
-            return await RestCallAsync<ComplianceTaxRateModel>("GET", path, null).ConfigureAwait(false);
-        }
-
-
-        /// <summary>
-        /// Retrieve a single tax region.;
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.;
-        /// </remarks>
-        /// <param name="id">The ID of the tax region to retrieve.</param>
-        public async Task<TaxRegionModel> GetTaxRegionAsync(Int32 id)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/taxregions/{id}");
-            path.ApplyField("id", id);
-            return await RestCallAsync<TaxRegionModel>("GET", path, null).ConfigureAwait(false);
-        }
-
-
-        /// <summary>
-        /// Retrieve jurisdictions and rates in a combined format.;
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.;
-        /// </remarks>
-        /// <param name="effectiveDate">Used to limit the jurisdictions returned.</param>
-        /// <param name="endDate">Used to limit the jurisdictions returned.</param>
-        /// <param name="filter">A filter statement to identify specific records to retrieve. For more information on filtering, see [Filtering in REST](http://developer.avalara.com/avatax/filtering-in-rest/) .</param>
-        /// <param name="include">A comma separated list of objects to fetch underneath this jurisdiction.</param>
-        /// <param name="top">If nonzero, return no more than this number of results. Used with `$skip` to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.</param>
-        /// <param name="skip">If nonzero, skip this number of results before returning data. Used with `$top` to provide pagination for large datasets.</param>
-        /// <param name="orderBy">A comma separated list of sort statements in the format `(fieldname) [ASC|DESC]`, for example `id ASC`.</param>
-        public async Task<ComplianceJurisdictionRateModel> QueryJurisdictionRatesAsync(DateTime? effectiveDate, DateTime? endDate, String filter, String include, Int32? top, Int32? skip, String orderBy)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/jurisdictionrates");
-            path.AddQuery("effectiveDate", effectiveDate);
-            path.AddQuery("endDate", endDate);
-            path.AddQuery("$filter", filter);
-            path.AddQuery("$include", include);
-            path.AddQuery("$top", top);
-            path.AddQuery("$skip", skip);
-            path.AddQuery("$orderBy", orderBy);
-            return await RestCallAsync<ComplianceJurisdictionRateModel>("GET", path, null).ConfigureAwait(false);
-        }
-
-
-        /// <summary>
-        /// Retrieve all unique jurisdictions.;
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.
-        /// 
-        /// You may specify one or more of the following values in the '$include' parameter to fetch additional nested data, using commas to separate multiple values:
-        /// 
-        /// * TaxRates;
-        /// </remarks>
-        /// <param name="country">The two-character ISO-3166 code for the country.</param>
-        /// <param name="region">The two or three character region code for the region.</param>
-        /// <param name="effectiveDate">Used to limit the jurisdictions or rates returned.</param>
-        /// <param name="endDate">Used to limit the jurisdictions or rates returned.</param>
-        /// <param name="aggregationOption">Aggregation method used if rates are returned using the '$include' parameter.</param>
-        /// <param name="include">A comma separated list of objects to fetch underneath this tax rate.</param>
-        /// <param name="top">If nonzero, return no more than this number of results. Used with `$skip` to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.</param>
-        /// <param name="skip">If nonzero, skip this number of results before returning data. Used with `$top` to provide pagination for large datasets.</param>
-        public async Task<ComplianceJurisdictionModel> QueryJurisdictionsAsync(String country, String region, DateTime? effectiveDate, DateTime? endDate, String aggregationOption, String include, Int32? top, Int32? skip)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/jurisdictions/{country}/{region}");
-            path.ApplyField("country", country);
-            path.ApplyField("region", region);
-            path.AddQuery("effectiveDate", effectiveDate);
-            path.AddQuery("endDate", endDate);
-            path.AddQuery("aggregationOption", aggregationOption);
-            path.AddQuery("$include", include);
-            path.AddQuery("$top", top);
-            path.AddQuery("$skip", skip);
-            return await RestCallAsync<ComplianceJurisdictionModel>("GET", path, null).ConfigureAwait(false);
-        }
-
-
-        /// <summary>
-        /// Retrieve all tax rates.;
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.;
-        /// </remarks>
-        /// <param name="filter">A filter statement to identify specific records to retrieve. For more information on filtering, see [Filtering in REST](http://developer.avalara.com/avatax/filtering-in-rest/) .</param>
-        /// <param name="include">A comma separated list of objects to fetch underneath this tax rate.</param>
-        /// <param name="top">If nonzero, return no more than this number of results. Used with `$skip` to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.</param>
-        /// <param name="skip">If nonzero, skip this number of results before returning data. Used with `$top` to provide pagination for large datasets.</param>
-        /// <param name="orderBy">A comma separated list of sort statements in the format `(fieldname) [ASC|DESC]`, for example `id ASC`.</param>
-        public async Task<ComplianceTaxRateModel> QueryTaxRatesAsync(String filter, String include, Int32? top, Int32? skip, String orderBy)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/taxrates");
-            path.AddQuery("$filter", filter);
-            path.AddQuery("$include", include);
-            path.AddQuery("$top", top);
-            path.AddQuery("$skip", skip);
-            path.AddQuery("$orderBy", orderBy);
-            return await RestCallAsync<ComplianceTaxRateModel>("GET", path, null).ConfigureAwait(false);
-        }
-
-
-        /// <summary>
-        /// Retrieve all tax region jurisdictions.;
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.;
-        /// </remarks>
-        /// <param name="filter">A filter statement to identify specific records to retrieve. For more information on filtering, see [Filtering in REST](http://developer.avalara.com/avatax/filtering-in-rest/) .</param>
-        /// <param name="include">A comma separated list of objects to fetch underneath this tax region jurisdiction.</param>
-        /// <param name="top">If nonzero, return no more than this number of results. Used with `$skip` to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.</param>
-        /// <param name="skip">If nonzero, skip this number of results before returning data. Used with `$top` to provide pagination for large datasets.</param>
-        /// <param name="orderBy">A comma separated list of sort statements in the format `(fieldname) [ASC|DESC]`, for example `id ASC`.</param>
-        public async Task<TaxRegionJurisdictionModel> QueryTaxRegionJurisdictionsAsync(String filter, String include, Int32? top, Int32? skip, String orderBy)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/taxregionjurisdictions");
-            path.AddQuery("$filter", filter);
-            path.AddQuery("$include", include);
-            path.AddQuery("$top", top);
-            path.AddQuery("$skip", skip);
-            path.AddQuery("$orderBy", orderBy);
-            return await RestCallAsync<TaxRegionJurisdictionModel>("GET", path, null).ConfigureAwait(false);
-        }
-
-
-        /// <summary>
-        /// Retrieve all tax regions.;
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.;
-        /// </remarks>
-        /// <param name="filter">A filter statement to identify specific records to retrieve. For more information on filtering, see [Filtering in REST](http://developer.avalara.com/avatax/filtering-in-rest/) .</param>
-        /// <param name="include">A comma separated list of objects to fetch underneath this tax region.</param>
-        /// <param name="top">If nonzero, return no more than this number of results. Used with `$skip` to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.</param>
-        /// <param name="skip">If nonzero, skip this number of results before returning data. Used with `$top` to provide pagination for large datasets.</param>
-        /// <param name="orderBy">A comma separated list of sort statements in the format `(fieldname) [ASC|DESC]`, for example `id ASC`.</param>
-        public async Task<TaxRegionModel> QueryTaxRegionsAsync(String filter, String include, Int32? top, Int32? skip, String orderBy)
-        {
-            var path = new AvaTaxPath("/api/v2/compliance/taxregions");
-            path.AddQuery("$filter", filter);
-            path.AddQuery("$include", include);
-            path.AddQuery("$top", top);
-            path.AddQuery("$skip", skip);
-            path.AddQuery("$orderBy", orderBy);
-            return await RestCallAsync<TaxRegionModel>("GET", path, null).ConfigureAwait(false);
-        }
-
-
-        /// <summary>
-        /// API to modify the reference fields at the document and the line level.;
-        /// </summary>
-        /// <remarks>
-        /// ;
-        /// </remarks>
-        /// <param name="companyId"></param>
-        /// <param name="model"></param>
-        public async Task<FetchResult<TransactionModel>> TagTransactionAsync(Int32 companyId, List<TransactionReferenceFieldModel> model)
-        {
-            var path = new AvaTaxPath("/api/v2/companies/{companyId}/transactions/tag");
-            path.ApplyField("companyId", companyId);
-            return await RestCallAsync<FetchResult<TransactionModel>>("PUT", path, model).ConfigureAwait(false);
         }
 
 
@@ -14225,7 +13828,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="country">The country of the return(s) you are trying to retrieve</param>
         /// <param name="region">The region of the return(s) you are trying to retrieve</param>
         /// <param name="filingCalendarId">The filing calendar id of the return you are trying to retrieve</param>
-        public async Task<FetchResult<FilingReturnModelBasic>> GetFilingsReturnsAsync(Int32 companyId, Int32? endPeriodMonth, Int32? endPeriodYear, String frequency, String status, String country, String region, Int64? filingCalendarId)
+        public async Task<FetchResult<FilingReturnModelBasic>> GetFilingsReturnsAsync(Int32 companyId, Int32? endPeriodMonth, Int32? endPeriodYear, FilingFrequencyId? frequency, FilingStatusId? status, String country, String region, Int64? filingCalendarId)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyId}/filings/returns");
             path.ApplyField("companyId", companyId);
@@ -15377,7 +14980,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="type">The transaction type for this MultiDocument transaction</param>
         /// <param name="include">Specifies objects to include in this fetch call</param>
         /// <param name="model">The adjust request you wish to execute</param>
-        public async Task<MultiDocumentModel> AdjustMultiDocumentTransactionAsync(String code, String type, String include, AdjustMultiDocumentModel model)
+        public async Task<MultiDocumentModel> AdjustMultiDocumentTransactionAsync(String code, DocumentType type, String include, AdjustMultiDocumentModel model)
         {
             var path = new AvaTaxPath("/api/v2/transactions/multidocument/{code}/type/{type}/adjust");
             path.ApplyField("code", code);
@@ -15408,7 +15011,7 @@ namespace Avalara.AvaTax.RestClient
         /// </remarks>
         /// <param name="code">The transaction code for this MultiDocument transaction</param>
         /// <param name="type">The transaction type for this MultiDocument transaction</param>
-        public async Task<AuditMultiDocumentModel> AuditMultiDocumentTransactionAsync(String code, String type)
+        public async Task<AuditMultiDocumentModel> AuditMultiDocumentTransactionAsync(String code, DocumentType type)
         {
             var path = new AvaTaxPath("/api/v2/transactions/multidocument/{code}/type/{type}/audit");
             path.ApplyField("code", code);
@@ -15505,7 +15108,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="code"></param>
         /// <param name="type"></param>
         /// <param name="include">Specifies objects to include in the response after transaction is created</param>
-        public async Task<MultiDocumentModel> GetMultiDocumentTransactionByCodeAndTypeAsync(String code, String type, String include)
+        public async Task<MultiDocumentModel> GetMultiDocumentTransactionByCodeAndTypeAsync(String code, DocumentType type, String include)
         {
             var path = new AvaTaxPath("/api/v2/transactions/multidocument/{code}/type/{type}");
             path.ApplyField("code", code);
@@ -15638,7 +15241,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="type">The type of this MultiDocument transaction</param>
         /// <param name="include">Specifies objects to include in the response after transaction is created</param>
         /// <param name="model">Information about the refund to create</param>
-        public async Task<MultiDocumentModel> RefundMultiDocumentTransactionAsync(String code, String type, String include, RefundTransactionModel model)
+        public async Task<MultiDocumentModel> RefundMultiDocumentTransactionAsync(String code, DocumentType type, String include, RefundTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/transactions/multidocument/{code}/type/{type}/refund");
             path.ApplyField("code", code);
@@ -15684,7 +15287,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="code">The transaction code for this MultiDocument transaction</param>
         /// <param name="type">The transaction type for this MultiDocument transaction</param>
         /// <param name="model">The void request you wish to execute</param>
-        public async Task<MultiDocumentModel> VoidMultiDocumentTransactionAsync(String code, String type, VoidTransactionModel model)
+        public async Task<MultiDocumentModel> VoidMultiDocumentTransactionAsync(String code, DocumentType type, VoidTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/transactions/multidocument/{code}/type/{type}/void");
             path.ApplyField("code", code);
@@ -15856,29 +15459,6 @@ namespace Avalara.AvaTax.RestClient
             path.AddQuery("$skip", skip);
             path.AddQuery("$orderBy", orderBy);
             return await RestCallAsync<FetchResult<NexusModel>>("GET", path, null).ConfigureAwait(false);
-        }
-
-
-        /// <summary>
-        /// Summarize nexus by NexusTaxTypeGroup for this company;
-        /// </summary>
-        /// <remarks>
-        /// Provides a summary of nexus information useful for quickly displaying key information.
-        /// 
-        /// The concept of Nexus indicates a place where your company is legally obligated to collect and remit transactional 
-        /// taxes. The legal requirements for nexus may vary per country and per jurisdiction; please seek advice from your
-        /// accountant or lawyer prior to declaring nexus.
-        /// 
-        /// This API produces only basic information about your company's nexus declarations. For example, it will show
-        /// the number of nexus declarations of each tax type. To request more information about your company's nexus 
-        /// declarations, please use `QueryNexus` or `ListNexusByCompany`.;
-        /// </remarks>
-        /// <param name="companyId">The ID of the company that owns these nexus objects</param>
-        public async Task<NexusSummaryModel> NexusSummaryAsync(Int32 companyId)
-        {
-            var path = new AvaTaxPath("/api/v2/companies/{companyId}/nexus/summary");
-            path.ApplyField("companyId", companyId);
-            return await RestCallAsync<NexusSummaryModel>("GET", path, null).ConfigureAwait(false);
         }
 
 
@@ -17357,7 +16937,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="format">The format of the file (JSON by default)</param>
         /// <param name="partnerId">If specified, requests a custom partner-formatted version of the file.</param>
         /// <param name="includeJurisCodes">When true, the file will include jurisdiction codes in the result.</param>
-        public async Task<FileResult> BuildTaxContentFileForLocationAsync(Int32 companyId, Int32 id, DateTime? date, String format, String partnerId, Boolean? includeJurisCodes)
+        public async Task<FileResult> BuildTaxContentFileForLocationAsync(Int32 companyId, Int32 id, DateTime? date, PointOfSaleFileType? format, PointOfSalePartnerId? partnerId, Boolean? includeJurisCodes)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyId}/locations/{id}/pointofsaledata");
             path.ApplyField("companyId", companyId);
@@ -17366,29 +16946,6 @@ namespace Avalara.AvaTax.RestClient
             path.AddQuery("format", format);
             path.AddQuery("partnerId", partnerId);
             path.AddQuery("includeJurisCodes", includeJurisCodes);
-            return await RestCallAsync<FileResult>("GET", path, null).ConfigureAwait(false);
-        }
-
-
-        /// <summary>
-        /// Retrieve send-sale tax content for this company.;
-        /// </summary>
-        /// <remarks>
-        /// This API is available by invitation only.;
-        /// </remarks>
-        /// <param name="date">The date for which we are fetching tax content.</param>
-        /// <param name="taxCode">The tax code for which we are fetching tax content.</param>
-        /// <param name="companyId">The unique ID number of the company which is fetching tax content.</param>
-        /// <param name="format">Requests a specific data format for this content file.</param>
-        /// <param name="type">Requests a specific encoding for this content file.</param>
-        public async Task<FileResult> DownloadSendSalesRateFileAsync(DateTime date, String taxCode, Int32 companyId, String format, String type)
-        {
-            var path = new AvaTaxPath("/api/v2/sendsalescontent/download/{companyId}/{taxCode}/{date}");
-            path.ApplyField("date", date);
-            path.ApplyField("taxCode", taxCode);
-            path.ApplyField("companyId", companyId);
-            path.AddQuery("format", format);
-            path.AddQuery("type", type);
             return await RestCallAsync<FileResult>("GET", path, null).ConfigureAwait(false);
         }
 
@@ -17698,7 +17255,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to adjust</param>
         /// <param name="documentType">(Optional): The document type of the transaction to adjust.</param>
         /// <param name="model">The adjustment you wish to make</param>
-        public async Task<TransactionModel> AdjustTransactionAsync(String companyCode, String transactionCode, String documentType, AdjustTransactionModel model)
+        public async Task<TransactionModel> AdjustTransactionAsync(String companyCode, String transactionCode, DocumentType? documentType, AdjustTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/adjust");
             path.ApplyField("companyCode", companyCode);
@@ -17762,7 +17319,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="companyCode">The code identifying the company that owns this transaction</param>
         /// <param name="transactionCode">The code identifying the transaction</param>
         /// <param name="documentType">The document type of the original transaction</param>
-        public async Task<AuditTransactionModel> AuditTransactionWithTypeAsync(String companyCode, String transactionCode, String documentType)
+        public async Task<AuditTransactionModel> AuditTransactionWithTypeAsync(String companyCode, String transactionCode, DocumentType documentType)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/types/{documentType}/audit");
             path.ApplyField("companyCode", companyCode);
@@ -17812,7 +17369,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to change</param>
         /// <param name="documentType">(Optional): The document type of the transaction to change document code. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The code change request you wish to execute</param>
-        public async Task<TransactionModel> ChangeTransactionCodeAsync(String companyCode, String transactionCode, String documentType, ChangeTransactionCodeModel model)
+        public async Task<TransactionModel> ChangeTransactionCodeAsync(String companyCode, String transactionCode, DocumentType? documentType, ChangeTransactionCodeModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/changecode");
             path.ApplyField("companyCode", companyCode);
@@ -17841,7 +17398,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to commit</param>
         /// <param name="documentType">(Optional): The document type of the transaction to commit. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The commit request you wish to execute</param>
-        public async Task<TransactionModel> CommitTransactionAsync(String companyCode, String transactionCode, String documentType, CommitTransactionModel model)
+        public async Task<TransactionModel> CommitTransactionAsync(String companyCode, String transactionCode, DocumentType? documentType, CommitTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/commit");
             path.ApplyField("companyCode", companyCode);
@@ -18003,7 +17560,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to retrieve</param>
         /// <param name="documentType">(Optional): The document type of the transaction to retrieve</param>
         /// <param name="include">Specifies objects to include in this fetch call</param>
-        public async Task<TransactionModel> GetTransactionByCodeAsync(String companyCode, String transactionCode, String documentType, String include)
+        public async Task<TransactionModel> GetTransactionByCodeAsync(String companyCode, String transactionCode, DocumentType? documentType, String include)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}");
             path.ApplyField("companyCode", companyCode);
@@ -18024,7 +17581,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to retrieve</param>
         /// <param name="documentType">The transaction type to retrieve</param>
         /// <param name="include">Specifies objects to include in this fetch call</param>
-        public async Task<TransactionModel> GetTransactionByCodeAndTypeAsync(String companyCode, String transactionCode, String documentType, String include)
+        public async Task<TransactionModel> GetTransactionByCodeAndTypeAsync(String companyCode, String transactionCode, DocumentType documentType, String include)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/types/{documentType}");
             path.ApplyField("companyCode", companyCode);
@@ -18133,7 +17690,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to lock</param>
         /// <param name="documentType">(Optional): The document type of the transaction to lock. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The lock request you wish to execute</param>
-        public async Task<TransactionModel> LockTransactionAsync(String companyCode, String transactionCode, String documentType, LockTransactionModel model)
+        public async Task<TransactionModel> LockTransactionAsync(String companyCode, String transactionCode, DocumentType? documentType, LockTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/lock");
             path.ApplyField("companyCode", companyCode);
@@ -18185,7 +17742,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="documentType">(Optional): The document type of the transaction to refund. If not provided, the default is SalesInvoice.</param>
         /// <param name="useTaxDateOverride">(Optional): If set to true, processes refund using taxDateOverride rather than taxAmountOverride (Note: taxAmountOverride is not allowed for SST states).</param>
         /// <param name="model">Information about the refund to create</param>
-        public async Task<TransactionModel> RefundTransactionAsync(String companyCode, String transactionCode, String include, String documentType, Boolean? useTaxDateOverride, RefundTransactionModel model)
+        public async Task<TransactionModel> RefundTransactionAsync(String companyCode, String transactionCode, String include, DocumentType? documentType, Boolean? useTaxDateOverride, RefundTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/refund");
             path.ApplyField("companyCode", companyCode);
@@ -18216,7 +17773,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to settle</param>
         /// <param name="documentType">(Optional): The document type of the transaction to settle. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The data from an external system to reconcile against AvaTax</param>
-        public async Task<TransactionModel> SettleTransactionAsync(String companyCode, String transactionCode, String documentType, SettleTransactionModel model)
+        public async Task<TransactionModel> SettleTransactionAsync(String companyCode, String transactionCode, DocumentType? documentType, SettleTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/settle");
             path.ApplyField("companyCode", companyCode);
@@ -18238,7 +17795,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="companyCode">The company code of the company that recorded this transaction</param>
         /// <param name="transactionCode">The transaction code to commit</param>
         /// <param name="documentType">(Optional): The document type of the transaction to commit. If not provided, the default is SalesInvoice.</param>
-        public async Task<TransactionModel> UncommitTransactionAsync(String companyCode, String transactionCode, String documentType)
+        public async Task<TransactionModel> UncommitTransactionAsync(String companyCode, String transactionCode, DocumentType? documentType)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/uncommit");
             path.ApplyField("companyCode", companyCode);
@@ -18265,7 +17822,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to settle</param>
         /// <param name="documentType">(Optional): The document type of the transaction to verify. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The data from an external system to reconcile against AvaTax</param>
-        public async Task<TransactionModel> VerifyTransactionAsync(String companyCode, String transactionCode, String documentType, VerifyTransactionModel model)
+        public async Task<TransactionModel> VerifyTransactionAsync(String companyCode, String transactionCode, DocumentType? documentType, VerifyTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/verify");
             path.ApplyField("companyCode", companyCode);
@@ -18294,7 +17851,7 @@ namespace Avalara.AvaTax.RestClient
         /// <param name="transactionCode">The transaction code to void</param>
         /// <param name="documentType">(Optional): The document type of the transaction to void. If not provided, the default is SalesInvoice.</param>
         /// <param name="model">The void request you wish to execute. To void a transaction the code must be set to 'DocVoided'</param>
-        public async Task<TransactionModel> VoidTransactionAsync(String companyCode, String transactionCode, String documentType, VoidTransactionModel model)
+        public async Task<TransactionModel> VoidTransactionAsync(String companyCode, String transactionCode, DocumentType? documentType, VoidTransactionModel model)
         {
             var path = new AvaTaxPath("/api/v2/companies/{companyCode}/transactions/{transactionCode}/void");
             path.ApplyField("companyCode", companyCode);
@@ -18649,7 +18206,7 @@ namespace Avalara.AvaTax.RestClient
         /// specific features of AvaTax.;
         /// </remarks>
         /// <param name="serviceTypeId">The service to check</param>
-        public async Task<SubscriptionModel> GetMySubscriptionAsync(String serviceTypeId)
+        public async Task<SubscriptionModel> GetMySubscriptionAsync(ServiceTypeId serviceTypeId)
         {
             var path = new AvaTaxPath("/api/v2/utilities/subscriptions/{serviceTypeId}");
             path.ApplyField("serviceTypeId", serviceTypeId);

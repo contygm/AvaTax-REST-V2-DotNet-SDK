@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -35,12 +34,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// How to proceed if the rule crashes
         /// </summary>
-        public String crashBehavior { get; set; }
+        public AdvancedRuleCrashBehavior? crashBehavior { get; set; }
 
         /// <summary>
         /// The type of script - request or response
         /// </summary>
-        public String scriptType { get; set; }
+        public AdvancedRuleScriptType? scriptType { get; set; }
 
         /// <summary>
         /// The JavaScript rule

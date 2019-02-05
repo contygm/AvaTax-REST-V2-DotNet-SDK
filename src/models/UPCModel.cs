@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -50,12 +49,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If this UPC became effective on a certain date, this contains the first date on which the UPC was effective.
         /// </summary>
-        public String effectiveDate { get; set; }
+        public DateTime? effectiveDate { get; set; }
 
         /// <summary>
         /// If this UPC expired or will expire on a certain date, this contains the last date on which the UPC was effective.
         /// </summary>
-        public String endDate { get; set; }
+        public DateTime? endDate { get; set; }
 
         /// <summary>
         /// A usage identifier for this UPC code.

@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -30,12 +29,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date associated with the response content. Default is current date. This field can be used to backdate or postdate the response content.
         /// </summary>
-        public String documentDate { get; set; }
+        public DateTime? documentDate { get; set; }
 
         /// <summary>
         /// The format of your response. Formats include JSON, CSV, and XML.
         /// </summary>
-        public String responseType { get; set; }
+        public PointOfSaleFileType? responseType { get; set; }
 
         /// <summary>
         /// A list of tax codes to include in this point-of-sale file. If no tax codes are specified, response will include all distinct tax codes associated with the Items within your company.
@@ -60,7 +59,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// A unique code assoicated with the Partner you may be working with. If you are not working with a Partner or your Partner has not provided you an ID, leave null.
         /// </summary>
-        public String partnerId { get; set; }
+        public PointOfSalePartnerId? partnerId { get; set; }
 
 
         /// <summary>

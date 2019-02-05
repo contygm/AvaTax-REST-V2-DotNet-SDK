@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -27,7 +26,7 @@ namespace Avalara.AvaTax.RestClient
         /// To void the transaction, please specify the reason 'DocVoided'.
         /// If you do not provide a reason, the void command will fail.
         /// </summary>
-        public String code { get; set; }
+        public VoidReasonCode code { get; set; }
 
 
         /// <summary>

@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -42,7 +41,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The filing frequency of the request
         /// </summary>
-        public String filingFrequencyId { get; set; }
+        public FilingFrequencyId filingFrequencyId { get; set; }
 
         /// <summary>
         /// State registration ID of the company requesting the filing calendar.
@@ -57,7 +56,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of tax to report on this return.
         /// </summary>
-        public String taxTypeId { get; set; }
+        public MatchingTaxType? taxTypeId { get; set; }
 
         /// <summary>
         /// Location code of the request
@@ -67,12 +66,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Filing cycle effective date of the request
         /// </summary>
-        public String effDate { get; set; }
+        public DateTime effDate { get; set; }
 
         /// <summary>
         /// Filing cycle end date of the request
         /// </summary>
-        public String endDate { get; set; }
+        public DateTime? endDate { get; set; }
 
         /// <summary>
         /// Flag if the request is a clone of a current filing calendar

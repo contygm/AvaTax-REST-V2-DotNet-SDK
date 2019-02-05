@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -77,7 +76,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If this calendar is for a location-specific tax return, specify the location-specific behavior here.
         /// </summary>
-        public String outletTypeId { get; set; }
+        public OutletTypeId? outletTypeId { get; set; }
 
         /// <summary>
         /// Specify the ISO 4217 currency code for the currency to remit for this tax return. For all tax returns in the United States, specify "USD".
@@ -87,7 +86,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The frequency on which this tax form is filed.
         /// </summary>
-        public String filingFrequencyId { get; set; }
+        public FilingFrequencyId? filingFrequencyId { get; set; }
 
         /// <summary>
         /// A 16-bit bitmap containing a 1 for each month when the return should be filed.
@@ -218,19 +217,19 @@ namespace Avalara.AvaTax.RestClient
         /// This date specifies the earliest date for tax transactions that should be reported on this filing calendar.
         /// Please note that tax is usually filed one month in arrears: for example, tax for January transactions is typically filed during the month of February.
         /// </summary>
-        public String effectiveDate { get; set; }
+        public DateTime? effectiveDate { get; set; }
 
         /// <summary>
         /// The last date for the tax period when this return should be filed.
         /// This date specifies the last date for tax transactions that should be reported on this filing calendar.
         /// Please note that tax is usually filed one month in arrears: for example, tax for January transactions is typically filed during the month of February.
         /// </summary>
-        public String endDate { get; set; }
+        public DateTime? endDate { get; set; }
 
         /// <summary>
         /// The method to be used when filing this return.
         /// </summary>
-        public String filingTypeId { get; set; }
+        public FilingTypeId? filingTypeId { get; set; }
 
         /// <summary>
         /// If you file electronically, this is the username you use to log in to the tax authority's website.
@@ -256,7 +255,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of tax to report on this return.
         /// </summary>
-        public String taxTypeId { get; set; }
+        public MatchingTaxType taxTypeId { get; set; }
 
         /// <summary>
         /// Internal filing notes.

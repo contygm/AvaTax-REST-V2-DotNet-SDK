@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -40,7 +39,7 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// If you omit this value, the API will assume you want to create a `SalesOrder`.
         /// </summary>
-        public String type { get; set; }
+        public DocumentType? type { get; set; }
 
         /// <summary>
         /// Company Code - Specify the code of the company creating this transaction here. If you leave this value null,
@@ -54,7 +53,7 @@ namespace Avalara.AvaTax.RestClient
         /// By default, this date will be used to calculate the tax rates for the transaction. If you wish to use a
         /// different date to calculate tax rates, please specify a `taxOverride` of type `taxDate`.
         /// </summary>
-        public String date { get; set; }
+        public DateTime date { get; set; }
 
         /// <summary>
         /// Salesperson Code - The client application salesperson reference code.
@@ -161,7 +160,7 @@ namespace Avalara.AvaTax.RestClient
         /// Specifies whether the tax calculation is handled Local, Remote, or Automatic (default). This only 
         /// applies when using an AvaLocal server.
         /// </summary>
-        public String serviceMode { get; set; }
+        public ServiceMode? serviceMode { get; set; }
 
         /// <summary>
         /// Currency exchange rate from this transaction to the company base currency.
@@ -174,7 +173,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Effective date of the exchange rate.
         /// </summary>
-        public String exchangeRateEffectiveDate { get; set; }
+        public DateTime? exchangeRateEffectiveDate { get; set; }
 
         /// <summary>
         /// Sets the Point of Sale Lane Code sent by the User for this document.
@@ -217,7 +216,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If the user wishes to request additional debug information from this transaction, specify a level higher than `normal`.
         /// </summary>
-        public String debugLevel { get; set; }
+        public TaxDebugLevel? debugLevel { get; set; }
 
 
         /// <summary>

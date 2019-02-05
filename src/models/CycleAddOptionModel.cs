@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -30,17 +29,17 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The period start date for the customer's first transaction in the jurisdiction being added
         /// </summary>
-        public String transactionalPeriodStart { get; set; }
+        public DateTime? transactionalPeriodStart { get; set; }
 
         /// <summary>
         /// The period end date for the customer's last transaction in the jurisdiction being added
         /// </summary>
-        public String transactionalPeriodEnd { get; set; }
+        public DateTime? transactionalPeriodEnd { get; set; }
 
         /// <summary>
         /// The jurisdiction-assigned due date for the form
         /// </summary>
-        public String filingDueDate { get; set; }
+        public DateTime? filingDueDate { get; set; }
 
         /// <summary>
         /// A descriptive name of the cycle and due date of form.
@@ -60,7 +59,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The filing frequency of the request
         /// </summary>
-        public String filingFrequencyId { get; set; }
+        public FilingFrequencyId? filingFrequencyId { get; set; }
 
         /// <summary>
         /// An explanation for why this form cannot be added for the current cycle

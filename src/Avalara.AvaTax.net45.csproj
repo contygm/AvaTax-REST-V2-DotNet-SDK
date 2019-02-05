@@ -258,6 +258,7 @@
     <Compile Include="models\MultiCompanyLineItemModel.cs" />
     <Compile Include="models\MultiDocumentLineItemModel.cs" />
     <Compile Include="models\MultiDocumentModel.cs" />
+    <Compile Include="models\MultiTaxFilingModel.cs" />
     <Compile Include="models\NewAccountModel.cs" />
     <Compile Include="models\NewAccountRequestModel.cs" />
     <Compile Include="models\NexusByAddressModel.cs" />

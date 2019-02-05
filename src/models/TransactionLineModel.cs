@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -146,7 +145,7 @@ namespace Avalara.AvaTax.RestClient
         /// The date when this transaction should be reported. By default, all transactions are reported on the date when the actual transaction took place.
         /// In some cases, line items may be reported later due to delayed shipments or other business reasons.
         /// </summary>
-        public String reportingDate { get; set; }
+        public DateTime? reportingDate { get; set; }
 
         /// <summary>
         /// The revenue account number for this line item.
@@ -156,7 +155,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Indicates whether this line item was taxed according to the origin or destination.
         /// </summary>
-        public String sourcing { get; set; }
+        public Sourcing? sourcing { get; set; }
 
         /// <summary>
         /// The tax for this line in this transaction.
@@ -202,7 +201,7 @@ namespace Avalara.AvaTax.RestClient
         /// In some cases, for example when a consumer returns a product purchased previously, line items may be calculated using a tax date in the past
         /// so that the consumer can receive a refund for the correct tax amount that was charged when the item was originally purchased.
         /// </summary>
-        public String taxDate { get; set; }
+        public DateTime? taxDate { get; set; }
 
         /// <summary>
         /// The tax engine identifier that was used to calculate this line item.
@@ -212,7 +211,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If a tax override was specified, this indicates the type of tax override.
         /// </summary>
-        public String taxOverrideType { get; set; }
+        public TaxOverrideType? taxOverrideType { get; set; }
 
         /// <summary>
         /// VAT business identification number used for this transaction.

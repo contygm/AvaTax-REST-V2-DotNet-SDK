@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -65,14 +64,14 @@ namespace Avalara.AvaTax.RestClient
         /// (DEPRECATED) The jurisdiction type of the jurisdiction in which this company declared nexus.
         /// NOTE: Use jurisdictionTypeId instead.
         /// </summary>
-        public String jurisTypeId { get; set; }
+        public JurisTypeId? jurisTypeId { get; set; }
 
         /// <summary>
         /// The type of the jurisdiction in which this company declared nexus.
         /// 
         /// This field is defined by Avalara. All Avalara-defined fields must match an Avalara-defined nexus object found by calling `ListNexus`.
         /// </summary>
-        public String jurisdictionTypeId { get; set; }
+        public JurisdictionType? jurisdictionTypeId { get; set; }
 
         /// <summary>
         /// The code identifying the jurisdiction in which this company declared nexus.
@@ -93,14 +92,14 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// This field is user-selectable and should be provided when creating or updating a nexus object.
         /// </summary>
-        public String effectiveDate { get; set; }
+        public DateTime? effectiveDate { get; set; }
 
         /// <summary>
         /// If this nexus will end or has ended on a specific date, set this to the date when this nexus ends.
         /// 
         /// This field is user-selectable and should be provided when creating or updating a nexus object.
         /// </summary>
-        public String endDate { get; set; }
+        public DateTime? endDate { get; set; }
 
         /// <summary>
         /// The short name of the jurisdiction.
@@ -139,14 +138,14 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// This field is user-selectable and should be provided when creating or updating a nexus object.
         /// </summary>
-        public String nexusTypeId { get; set; }
+        public NexusTypeId? nexusTypeId { get; set; }
 
         /// <summary>
         /// Indicates whether this nexus is defined as origin or destination nexus.
         /// 
         /// This field is defined by Avalara. All Avalara-defined fields must match an Avalara-defined nexus object found by calling `ListNexus`.
         /// </summary>
-        public String sourcing { get; set; }
+        public Sourcing? sourcing { get; set; }
 
         /// <summary>
         /// True if you are also declaring local nexus within this jurisdiction.
@@ -162,7 +161,7 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// This field is user-selectable and should be provided when creating or updating a nexus object.
         /// </summary>
-        public String localNexusTypeId { get; set; }
+        public LocalNexusTypeId? localNexusTypeId { get; set; }
 
         /// <summary>
         /// Set this value to true if your company has a permanent establishment within this jurisdiction.

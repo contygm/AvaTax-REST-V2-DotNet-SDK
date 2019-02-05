@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -106,7 +105,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// (DEPRECATED) Please use `jurisdictionTypeId` instead.
         /// </summary>
-        public String jurisTypeId { get; set; }
+        public JurisTypeId? jurisTypeId { get; set; }
 
         /// <summary>
         /// The type of the jurisdiction to which this tax rule applies.
@@ -121,7 +120,7 @@ namespace Avalara.AvaTax.RestClient
         /// To make a custom tax rule for US or Canada that applies to all jurisdictions of a specific type, see the `isAllJuris` 
         /// field for more information.
         /// </summary>
-        public String jurisdictionTypeId { get; set; }
+        public JurisdictionType? jurisdictionTypeId { get; set; }
 
         /// <summary>
         /// DEPRECATED - Please use `entityUseCode` instead.
@@ -145,12 +144,12 @@ namespace Avalara.AvaTax.RestClient
         /// 
         /// For rules that affect all tax types, use the value `A` to match `All` tax types within that group.
         /// </summary>
-        public String taxTypeId { get; set; }
+        public MatchingTaxType? taxTypeId { get; set; }
 
         /// <summary>
         /// (DEPRECATED) Please use `rateTypeCode`, `taxTypeGroup` and `subTaxType` instead.
         /// </summary>
-        public String rateTypeId { get; set; }
+        public RateType? rateTypeId { get; set; }
 
         /// <summary>
         /// Indicates the code of the rate type that applies to this rule. Use [ListRateTypesByCountry](https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ListRateTypesByCountry/) API for a full list of rate type codes.
@@ -167,7 +166,7 @@ namespace Avalara.AvaTax.RestClient
         /// (for example, if you have been granted an official ruling for your product's rate that differs from the official rate), 
         /// or other types of behavior.
         /// </summary>
-        public String taxRuleTypeId { get; set; }
+        public TaxRuleTypeId taxRuleTypeId { get; set; }
 
         /// <summary>
         /// Allows you to make tax rules apply to lower jurisdictions. This feature is only available in the United States and Canada.
@@ -216,12 +215,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The first date at which this rule applies. If `null`, this rule will apply to all dates prior to the end date.
         /// </summary>
-        public String effectiveDate { get; set; }
+        public DateTime? effectiveDate { get; set; }
 
         /// <summary>
         /// The last date for which this rule applies. If `null`, this rule will apply to all dates after the effective date.
         /// </summary>
-        public String endDate { get; set; }
+        public DateTime? endDate { get; set; }
 
         /// <summary>
         /// A friendly name for this tax rule.
@@ -270,7 +269,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The sourcing types to which this rule applies.
         /// </summary>
-        public String sourcing { get; set; }
+        public Sourcing? sourcing { get; set; }
 
         /// <summary>
         /// This field has different behavior based on the type of rule.

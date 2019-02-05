@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -50,12 +49,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The current status of the filing return.
         /// </summary>
-        public String status { get; set; }
+        public FilingStatusId? status { get; set; }
 
         /// <summary>
         /// The filing frequency of the return.
         /// </summary>
-        public String filingFrequency { get; set; }
+        public FilingFrequencyId? filingFrequency { get; set; }
 
         /// <summary>
         /// The date the return was filed by Avalara.
@@ -80,7 +79,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The filing type of the return.
         /// </summary>
-        public String filingType { get; set; }
+        public FilingTypeId? filingType { get; set; }
 
         /// <summary>
         /// The name of the form.
@@ -265,7 +264,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Accrual type of the return
         /// </summary>
-        public String accrualType { get; set; }
+        public AccrualType? accrualType { get; set; }
 
         /// <summary>
         /// The month of the filing period for this tax filing. 

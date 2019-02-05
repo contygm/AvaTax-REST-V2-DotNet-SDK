@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -25,7 +24,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Specify the text case for the validated address result. If not specified, will return uppercase.
         /// </summary>
-        public String textCase { get; set; }
+        public TextCase? textCase { get; set; }
 
         /// <summary>
         /// First line of the street address

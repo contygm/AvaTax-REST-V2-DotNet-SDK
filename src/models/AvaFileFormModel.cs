@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -65,17 +64,17 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of the form being submitted
         /// </summary>
-        public String formTypeId { get; set; }
+        public FormTypeId? formTypeId { get; set; }
 
         /// <summary>
         /// The type of Filing option
         /// </summary>
-        public String filingOptionTypeId { get; set; }
+        public FilingOptionTypeId? filingOptionTypeId { get; set; }
 
         /// <summary>
         /// The type of the due date
         /// </summary>
-        public String dueDateTypeId { get; set; }
+        public DueDateTypeId? dueDateTypeId { get; set; }
 
         /// <summary>
         /// Due date
@@ -85,7 +84,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of E-file due date.
         /// </summary>
-        public String efileDueDateTypeId { get; set; }
+        public DueDateTypeId? efileDueDateTypeId { get; set; }
 
         /// <summary>
         /// The date by when the E-filing should be submitted
@@ -105,12 +104,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The way system does the rounding
         /// </summary>
-        public String roundingTypeId { get; set; }
+        public RoundingTypeId? roundingTypeId { get; set; }
 
         /// <summary>
         /// The outlet type of the form
         /// </summary>
-        public String outletTypeId { get; set; }
+        public OutletTypeId? outletTypeId { get; set; }
 
 
         /// <summary>

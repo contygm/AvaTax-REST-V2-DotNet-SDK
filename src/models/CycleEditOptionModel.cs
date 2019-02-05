@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -46,12 +45,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The effective date of the filing calendar (only applies if cloning).
         /// </summary>
-        public String clonedCalendarEffDate { get; set; }
+        public DateTime? clonedCalendarEffDate { get; set; }
 
         /// <summary>
         /// The expired end date of the old filing calendar (only applies if cloning).
         /// </summary>
-        public String expiredCalendarEndDate { get; set; }
+        public DateTime? expiredCalendarEndDate { get; set; }
 
 
         /// <summary>

@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -38,12 +37,12 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date when this certificate was signed.
         /// </summary>
-        public String signedDate { get; set; }
+        public DateTime signedDate { get; set; }
 
         /// <summary>
         /// Expiration date when this certificate will no longer be valid.
         /// </summary>
-        public String expirationDate { get; set; }
+        public DateTime expirationDate { get; set; }
 
         /// <summary>
         /// File name for the image of this certificate.
@@ -110,7 +109,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date/time when this record was last modified.
         /// </summary>
-        public String modifiedDate { get; set; }
+        public DateTime? modifiedDate { get; set; }
 
         /// <summary>
         /// Number of pages contained within this certificate.

@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -92,7 +91,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If this company participates in Streamlined Sales Tax, this is the date when the company joined the SST program.
         /// </summary>
-        public String sstEffectiveDate { get; set; }
+        public DateTime? sstEffectiveDate { get; set; }
 
         /// <summary>
         /// The two character ISO-3166 country code of the default country for this company.
@@ -107,7 +106,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Indicates whether this company prefers to round amounts at the document level or line level.
         /// </summary>
-        public String roundingLevelId { get; set; }
+        public RoundingLevelId? roundingLevelId { get; set; }
 
         /// <summary>
         /// Set this value to true to receive warnings in API calls via SOAP.
@@ -123,7 +122,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Used to apply tax detail dependency at a jurisdiction level.
         /// </summary>
-        public String taxDependencyLevelId { get; set; }
+        public TaxDependencyLevelId? taxDependencyLevelId { get; set; }
 
         /// <summary>
         /// Set this value to true to indicate that you are still working to finish configuring this company.

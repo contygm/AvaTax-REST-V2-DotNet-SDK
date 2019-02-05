@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -35,7 +34,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of jurisdiction that collects this tax.
         /// </summary>
-        public String jurisType { get; set; }
+        public JurisdictionType? jurisType { get; set; }
 
         /// <summary>
         /// Jurisdiction Code for the taxing jurisdiction
@@ -60,7 +59,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The tax type of this tax.
         /// </summary>
-        public String taxType { get; set; }
+        public TaxType? taxType { get; set; }
 
         /// <summary>
         /// The name of the tax.
@@ -75,7 +74,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// (DEPRECATED) Indicates the tax rate type. Please use rateTypeCode instead.
         /// </summary>
-        public String rateType { get; set; }
+        public RateType? rateType { get; set; }
 
         /// <summary>
         /// Indicates the code of the rate type. Use [ListRateTypesByCountry](https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ListRateTypesByCountry/) API for a full list of rate type codes.

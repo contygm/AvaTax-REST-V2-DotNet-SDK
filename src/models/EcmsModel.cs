@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -95,7 +94,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The type of exemption certificate. Permitted values are: Blanket and Single.
         /// </summary>
-        public String exemptCertTypeId { get; set; }
+        public ExemptCertTypeId exemptCertTypeId { get; set; }
 
         /// <summary>
         /// Document Reference Number, in the case of single-use exemption certificates, the DocumentCode or PurchaseOrderNo to which the certificate should apply.
@@ -138,7 +137,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Status for this exempt certificate
         /// </summary>
-        public String exemptCertStatusId { get; set; }
+        public ExemptCertStatusId exemptCertStatusId { get; set; }
 
         /// <summary>
         /// Date when this exempt certificate was created
@@ -192,7 +191,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// Review status for this exempt certificate
         /// </summary>
-        public String exemptCertReviewStatusId { get; set; }
+        public ExemptCertReviewStatusId? exemptCertReviewStatusId { get; set; }
 
         /// <summary>
         /// Exempt Cert details

@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -40,7 +39,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The filing period the adjustment is applied to.
         /// </summary>
-        public String period { get; set; }
+        public AdjustmentPeriodTypeId period { get; set; }
 
         /// <summary>
         /// The type of the adjustment.
@@ -55,7 +54,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The account type of the adjustment.
         /// </summary>
-        public String accountType { get; set; }
+        public PaymentAccountTypeId accountType { get; set; }
 
         /// <summary>
         /// A descriptive reason for creating this adjustment.

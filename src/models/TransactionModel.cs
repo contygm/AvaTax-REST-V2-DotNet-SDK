@@ -5,13 +5,12 @@ using Newtonsoft.Json;
 /*
  * AvaTax API Client Library
  *
- * (c) 2004-2018 Avalara, Inc.
+ * (c) 2004-2019 Avalara, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author Ted Spence
- * @author Zhenya Frolov
+ * @author Genevieve Conty
  * @author Greg Hester
  */
 
@@ -40,17 +39,17 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// The date on which this transaction occurred.
         /// </summary>
-        public String date { get; set; }
+        public DateTime? date { get; set; }
 
         /// <summary>
         /// DEPRECATED - The date when payment was made on this transaction. By default, this should be the same as the date of the transaction.
         /// </summary>
-        public String paymentDate { get; set; }
+        public DateTime? paymentDate { get; set; }
 
         /// <summary>
         /// The status of the transaction.
         /// </summary>
-        public String status { get; set; }
+        public DocumentStatus? status { get; set; }
 
         /// <summary>
         /// The type of the transaction. 
@@ -64,7 +63,7 @@ namespace Avalara.AvaTax.RestClient
         /// A return transaction represents a customer who decided to request a refund after purchasing a product from the company. An inventory 
         /// transfer transaction represents goods that were moved from one location of the company to another location without changing ownership.
         /// </summary>
-        public String type { get; set; }
+        public DocumentType? type { get; set; }
 
         /// <summary>
         /// If this transaction was created as part of a batch, this code indicates which batch.
@@ -154,7 +153,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If a tax override was applied to this transaction, indicates what type of tax override was applied.
         /// </summary>
-        public String taxOverrideType { get; set; }
+        public TaxOverrideType? taxOverrideType { get; set; }
 
         /// <summary>
         /// If a tax override was applied to this transaction, indicates the amount of tax that was requested by the customer.
@@ -214,7 +213,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If this transaction was adjusted, indicates the unique ID number of the reason why the transaction was adjusted.
         /// </summary>
-        public String adjustmentReason { get; set; }
+        public AdjustmentReason? adjustmentReason { get; set; }
 
         /// <summary>
         /// If this transaction was adjusted, indicates a description of the reason why the transaction was adjusted.
@@ -260,7 +259,7 @@ namespace Avalara.AvaTax.RestClient
         /// <summary>
         /// If this transaction included foreign currency exchange, this is the date as of which the exchange rate was calculated.
         /// </summary>
-        public String exchangeRateEffectiveDate { get; set; }
+        public DateTime? exchangeRateEffectiveDate { get; set; }
 
         /// <summary>
         /// If this transaction included foreign currency exchange, this is the exchange rate that was used.
