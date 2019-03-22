@@ -122,7 +122,7 @@ namespace Tests.Avalara.AvaTax.RestClient.netstandard
                 fileExtension = "csv"
             };
 
-            // Create the bare-minimum batch header info.
+            // Create the bare-minimum batch header info. 
             var batchRequest = new BatchModel
             {
                 name = "AutomationTestBatch",
